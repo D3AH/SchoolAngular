@@ -15,9 +15,19 @@ $enable-shadows: true;
 @import 'navbar';
 @import 'buttons';
 
+$form-padding: 25px;
+$rounded: 15px;
+
 section.row {
   padding-top: 2rem;
   padding-bottom: 2rem;
 }
 
 // Forms
+.form-container {
+  // @extend .bg-primary;
+  @extend .shadow-sm;
+  background-color: $light;
+  padding: $form-padding;
+  border-radius: $rounded;
+}
