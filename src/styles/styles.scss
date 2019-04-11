@@ -25,7 +25,6 @@ section.row {
 
 // Forms
 .form-container {
-  // @extend .bg-primary;
   @extend .shadow-sm;
   background-color: $light;
   padding: $form-padding;
