@@ -16,18 +16,68 @@ $enable-shadows: true;
 @import 'buttons';
 
 $form-padding: 25px;
-$rounded: 15px;
+$rounded: 0.25rem;
+
+body {
+  background-color: #DAE1E7;
+}
 
 section.row {
   padding-top: 2rem;
   padding-bottom: 2rem;
 }
 
+.shadow-md {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,.12), 0 2px 4px 0 rgba(0,0,0,.08);
+}
+
 // Forms
 .form-container {
-  // @extend .bg-primary;
-  @extend .shadow-sm;
-  background-color: $light;
+  @extend .shadow-md;
   padding: $form-padding;
   border-radius: $rounded;
+  margin-bottom: 15px;
+  background-color: white;
+
+  label {
+    font-size: .875rem;
+    margin-bottom: 0.25rem !important;
+    font-weight: 700;
+    color: #606f7b;
+  }
+
+  input {
+    background-color: $light;
+    // border-radius: 0.7rem;
+    font-size: 1rem;
+  }
+
+  .form-control:focus {
+      color: unset;
+      background-color: unset;
+      border-color: none;
+      outline: 0;
+      box-shadow: none;
+      /* box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 0 0.2rem rgba(0, 123, 255, 0.25); */
+  }
+
+  .form-control:focus, input:focus {
+    background-color: #fff;
+    border-bottom: 3px solid $primary;
+    font-size: 1.1rem;
+    // font-weight: 500;
+  }
+}
+
+input[type="submit"] {
+  transition: all 0.2s ease-in-out;
+  font: 18px Helvetica, Arial, sans-serif;
+  border: none;
+  background: #1aaf75;
+  color: #fff;
+  padding: 16px 40px;
+  
+  &:hover {
+    background: #109f67;
+  }
 }
