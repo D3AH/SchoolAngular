@@ -1,4 +1,19 @@
- $primary: red;
+$theme-colors: (
+  "primary": #0074d9,
+  "danger": #ff4136
+);
 
- // Importing all bootstrap
- @import 'bootstrap';
+$enable-shadows: true;
+
+// Importing all bootstrap
+@import 'functions';
+@import 'variables';
+@import 'mixins';
+
+@import 'reboot';
+@import 'grid';
+@import 'type';
+
+@import 'forms';
+@import 'navbar';
+@import 'buttons';
