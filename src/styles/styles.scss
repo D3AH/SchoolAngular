@@ -82,7 +82,14 @@ input[type="submit"] {
   }
 }
 
-button[type="button"]{
+.menu {
+  width: 100%;
   position: relative;
-  top: 47rem;
+  top: 15px;
+  left: 15px;
+
+  button {
+    margin-right: 10px;
+    min-width: 6rem;
+  }
 }
