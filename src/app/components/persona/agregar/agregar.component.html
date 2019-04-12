@@ -6,107 +6,116 @@
     Otro
   </button>
 </div>
-<section class="row justify-content-center">
-  <div class="col-12 col-md-6">
-    <!-- Datos personales -->
-    <form class="form-container" #formulario="ngForm">
-      <div class="form-group">
-        <label for="nombre">Nombre</label>
-        <input type="text " class="form-control" id="nombre">
+<section class="mt-5">
+  <form class="row justify-content-center" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="col-12 col-md-6">
+      <!-- Datos personales -->
+      <div class="form-container">
+        <div class="form-group">
+          <label for="nombre">Nombre</label>
+          <input type="text " class="form-control" formControlName="nombre">
+        </div>
+        <div class="form-group">
+            <label for="segundo">Segundo Nombre</label>
+          <input type="text" class="form-control" formControlName="segundoNombre">
+        </div>
+        <div class="form-group">
+          <label for="apellido">Apellido</label>
+          <input type="text" class="form-control" formControlName="apellido">
+        </div>
+        <div class="form-group">
+          <label for="segundoApellido">Segundo Apellido</label>
+          <input type="text" class="form-control" formControlName="segundoApellido">
+        </div>
+        <div class="form-group">
+          <label for="casada">Apellido Casada</label>
+          <input type="text" class="form-control" formControlName="apellidoCasada">
+        </div>
+        <div class="form-group">
+            <label for="fecha">Fecha de nacimiento</label>
+            <div class="input-group">
+              <input class="form-control" placeholder="yyyy-mm-dd"
+                     name="dp" formControlName="fechaNacimiento" ngbDatepicker #d="ngbDatepicker">
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+              </div>
+            </div>
+          </div>
+        <div class="form-group">
+          <label for="religion">Religion</label>
+          <select class="form-control" formControlName="religión">
+            <option>Opcion 1</option>
+            <option>Opcion 2</option>
+            <option>Opcion 3</option>
+            <option>Opcion 4</option>
+            <option>Opcion 5</option>
+            <option>Otro** configurar</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="email">Correo Electronico</label>
+          <input type="email" class="form-control" formControlName="email">
+        </div>
+        <div class="form-group">
+          <label for="genero">Genero</label>
+          <select class="form-control" formControlName="genero">
+            <option>Masculino</option>
+            <option>Femenino</option>
+          </select>
+        </div>
       </div>
-      <div class="form-group">
-        <label for="segundo">Segundo Nombre</label>
-        <input type="text" class="form-control" id="segundo">
-      </div>
-      <div class="form-group">
-        <label for="apellido">Apellido</label>
-        <input type="text" class="form-control" id="apellido">
-      </div>
-      <div class="form-group">
-        <label for="segundoApellido">Segundo Apellido</label>
-        <input type="text" class="form-control" id="segundoApellido">
-      </div>
-      <div class="form-group">
-        <label for="casada">Apellido Casada</label>
-        <input type="text" class="form-control" id="casada">
-      </div>
-      <div class="form-group">
-        <label for="fecha">Fecha de nacimiento</label>
-        <input data-format="MM/dd/yyyy HH:mm:ss PP" type="text" class="form-control" id="fecha">
-      </div>
-      <div class="form-group">
-        <label for="religion">Religion</label>
-        <select class="form-control" id="religion">
-          <option>Cristianismo</option>
-          <option>Islamismo</option>
-          <option>Judaísmo</option>
-          <option>Hinduismo</option>
-          <option>Budismo</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="email">Correo Electronico</label>
-        <input type="email" class="form-control" id="email">
-      </div>
-      <div class="form-group">
-        <label for="genero">Genero</label>
-        <select class="form-control" id="genero">
-          <option>Masculuno</option>
-          <option>Femenino</option>
-        </select>
-      </div>
-    </form>
-  </div>
-  <div class="col-12 col-md-6 col-lg-4">
-    <!-- Dirección -->
-    <form class="form-container">
-      <div class="form-group">
-          <label>Dirección</label>
-      </div>
-      <div class="form-group">
-        <input type="text" class="form-control" id="dirección" placeholder="Departamento">
-      </div>
-      <div class="form-group">
-        <input type="text" class="form-control" id="dirección" placeholder="Municipio">
-      </div>
-      <div class="form-group">
-        <input type="text" class="form-control" id="dirección" placeholder="Zona">
-      </div>
-      <div class="form-group">
-        <input type="text" class="form-control" id="dirección" placeholder="Colonia">
-      </div>
-      <div class="form-group">
-        <input type="text" class="form-control" id="dirección" placeholder="Avenida">
-      </div>
-      <div class="form-group">
-        <input type="text" class="form-control" id="dirección" placeholder="Calle">
-      </div>
-      <div class="form-group">
-        <input type="text" class="form-control" id="dirección" placeholder="Manzana o sector">
-      </div>
-      <div class="form-group">
-        <input type="text" class="form-control" id="dirección" placeholder="Número de casa">
-      </div>
-    </form>
-    <!-- Teléfono -->
-    <form class="form-container">
-      <div class="form-group">
-        <label for="casada">Teléfono</label>
-      </div>
-      <div class="form-group">
-        <input type="text" class="form-control" id="dirección" placeholder="Celular">
-      </div>
-      <div class="form-group">
-        <input type="text" class="form-control" id="dirección" placeholder="Domicilio">
-      </div>
-      <div class="form-group">
-        <input type="text" class="form-control" id="dirección" placeholder="Otro">
-      </div>
-    </form>
-    <div class="text-right">
-      <button type="button" class="btn btn-primary">
-        Enviar
-      </button>
     </div>
-  </div>
+    <div class="col-12 col-md-6 col-lg-4">
+      <!-- Dirección -->
+      <div class="form-container">
+        <div class="form-group">
+            <label>Dirección</label>
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" formControlName="departamento" placeholder="Departamento">
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" formControlName="municipio" placeholder="Municipio">
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" formControlName="zona" placeholder="Zona">
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" formControlName="colonia" placeholder="Colonia">
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" formControlName="avenida" placeholder="Avenida">
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" formControlName="calle" placeholder="Calle">
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" formControlName="sector" placeholder="Manzana o sector">
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" formControlName="numeroCasa" placeholder="Número de casa">
+        </div>
+      </div>
+      <!-- Teléfono -->
+      <div class="form-container">
+        <div class="form-group">
+          <label for="casada">Teléfono</label>
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" formControlName="celular" placeholder="Celular">
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" formControlName="domicilio" placeholder="Domicilio">
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" formControlName="otro" placeholder="Otro">
+        </div>
+      </div>
+      <div class="text-right">
+        <button type="submit" class="btn btn-primary">
+          Enviar
+        </button>
+      </div>
+    </div>
+  </form>
 </section>

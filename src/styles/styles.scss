@@ -12,6 +12,7 @@ $enable-shadows: true;
 @import 'utilities';
 
 @import 'forms';
+@import 'input-group';
 @import 'navbar';
 @import 'buttons';
 
@@ -92,4 +93,9 @@ input[type="submit"] {
     margin-right: 10px;
     min-width: 6rem;
   }
+}
+
+
+ngb-datepicker {
+  background-color: white !important;
 }

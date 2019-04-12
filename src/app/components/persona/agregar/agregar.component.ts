@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Data } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+// import { Data } from '@angular/router';
 
 @Component({
   selector: 'app-agregar',
@@ -7,30 +8,51 @@ import { Data } from '@angular/router';
   styleUrls: ['./agregar.component.scss']
 })
 export class AgregarComponent implements OnInit {
-  public nombre: string;
-  public segundoNombre: string;
-  public apellido: string;
-  public segundoApellido: string;
-  public apellidoCasada: string;
-  public fechaNacimiento: string;
-  public religión: string;
-  public email: string;
-  public genero: string;
-  public departamento: string;
-  public municipio: string;
-  public zona: string;
-  public colonia: string;
-  public avenida: string;
-  public calle: string;
-  public sector: string;
-  public numeroCasa: string;
-  public celular: number;
-  public domicilio: number;
-  public otro: number;
+  registerForm: FormGroup;
+  submitted = false;
 
-  constructor() {
-  }
+
+  constructor(private formbuilder: FormBuilder) { }
 
   ngOnInit() {
+    this.registerForm = this.formbuilder.group({
+      nombre: ['', Validators.required],
+      segundoNombre: ['', Validators.required],
+      apellido: ['', Validators.required],
+      segundoApellido: ['', Validators.required],
+      apellidoCasada: ['', Validators.required],
+      fechaNacimiento: ['', Validators.required],
+      religión: ['', Validators.required],
+      email: ['', Validators.required, Validators.email],
+      genero: ['', Validators.required],
+      departamento: ['', Validators.required],
+      municipio: ['', Validators.required],
+      zona: ['', Validators.required],
+      colonia: ['', Validators.required],
+      avenida: ['', Validators.required],
+      calle: ['', Validators.required],
+      sector: ['', Validators.required],
+      numeroCasa: ['', Validators.required],
+      celular: ['', Validators.required],
+      domicilio: ['', Validators.required],
+      otro: ['', Validators.required],
+    });
+  }
+
+  get f() {
+    return this.registerForm.controls;
+  }
+
+  onSubmit() {
+    this.submitted = true;
+    console.log(this.registerForm.value);
+    console.log(this.registerForm.valid);
+
+    if(!this.registerForm.valid) {
+      console.log('error!');
+      return;
+    }
+
+    alert('Go out here!');
   }
 }
