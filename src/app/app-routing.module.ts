@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { FormularioComponent } from './components/formulario/formulario.component';
+import { AgregarComponent } from './components/persona/agregar/agregar.component';
 
 const routes: Routes = [
-  {path: 'formulario', component: FormularioComponent}
+  {path: 'agregar', component: AgregarComponent}
 ];
 
 @NgModule({

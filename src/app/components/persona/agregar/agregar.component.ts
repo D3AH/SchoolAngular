@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Data } from '@angular/router';
 
 @Component({
-  selector: 'app-formulario',
-  templateUrl: './formulario.component.html',
-  styleUrls: ['./formulario.component.scss']
+  selector: 'app-agregar',
+  templateUrl: './agregar.component.html',
+  styleUrls: ['./agregar.component.scss']
 })
-export class FormularioComponent implements OnInit {
+export class AgregarComponent implements OnInit {
   public nombre: string;
   public segundoNombre: string;
   public apellido: string;
@@ -27,7 +27,7 @@ export class FormularioComponent implements OnInit {
   public celular: number;
   public domicilio: number;
   public otro: number;
-  
+
   constructor() {
   }
 

@@ -4,14 +4,14 @@ import { FormsModule }   from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FormularioComponent } from './components/formulario/formulario.component';
+import { AgregarComponent } from './components/persona/agregar/agregar.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    FormularioComponent,
+    AgregarComponent,
     NavbarComponent,
   ],
   imports: [
