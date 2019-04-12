@@ -8,4 +8,8 @@ var api = express.Router();
 
 api.get('/check', PersonController.checkPerson);
 
+api.post('/savePerson', PersonController.savePerson);
+
+api.get('/listPerson', PersonController.listPerson );
+
 module.exports = api;

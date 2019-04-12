@@ -8,7 +8,7 @@ var PersonSchema = Schema({
     secondName: String,
     firstSurname: String,
     lastSurname: String,
-    birthdate: Date,
+    birthdate: String,
     religion: String,
     email: String,
     gender: String,
