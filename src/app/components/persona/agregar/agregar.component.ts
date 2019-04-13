@@ -45,8 +45,8 @@ export class AgregarComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
+    // values here
     console.log(this.registerForm.value);
-    console.log(this.registerForm.valid);
 
     if(!this.registerForm.valid) {
       console.log('error!');
