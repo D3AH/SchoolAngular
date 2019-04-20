@@ -8,12 +8,14 @@ import { AgregarComponent } from './components/persona/agregar/agregar.component
 import { NavbarComponent } from './components/navbar/navbar.component';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { DynamicFormInputComponent } from './components/inputs/dynamic-form-input/dynamic-form-input.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AgregarComponent,
     NavbarComponent,
+    DynamicFormInputComponent,
   ],
   imports: [
     BrowserModule,

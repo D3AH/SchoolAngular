@@ -1,0 +1,44 @@
+<div [formGroup]="form" class="form-group">
+  <label [attr.for]="input.key">{{input.label}}</label>
+
+  <div [ngSwitch]="input.controlType">
+
+    <!-- Textbox -->
+    <input *ngSwitchCase="'textbox'"
+        [id]="input.key"
+        [type]="input.type"
+        [formControlName]="input.key"
+        class="form-control">
+
+    <!-- Dropdown -->
+    <select *ngSwitchCase="'dropdown'"
+        [id]="input.key"
+        [formControlName]="input.key">
+
+        <option *ngFor="let opt of input.options"
+            [value]="opt.key">
+            {{opt.value}}
+        </option>
+    </select>
+
+    <!-- Date -->
+    <div *ngSwitchCase="'date'" class="input-group">
+        <input class="form-control"
+            [id]="input.key"
+            [formControlName]="input.key"
+            placeholder="yyyy-mm-dd"
+            ngbDatepicker #d="ngbDatepicker">
+
+        <div class="input-group-append">
+            <button class="btn btn-outline-secondary calendar"
+                (click)="d.toggle()"
+                type="button">
+                <!-- Calendar icon -->
+            </button>
+        </div>
+    </div>
+
+  </div>
+
+  <div class="errorMessage" *ngIf="!isValid">{{input.label}} es requerido!</div>
+</div>
