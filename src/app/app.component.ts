@@ -1,20 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+
+import { InputService } from './services/input.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  providers: [InputService]
 })
-export class AppComponent implements OnInit {
-  datos;
+export class AppComponent {
+  inputs: any[];
 
-  ngOnInit(): void {
-    this.getData((json) => this.datos = json);
-  }
-
-  getData(func) {
-    fetch('https://jsonplaceholder.typicode.com/todos/1')
-      .then(response => response.json())
-      .then(json => func(json));
+  constructor(service: InputService) {
+    this.inputs = service.getInputs();
   }
 }

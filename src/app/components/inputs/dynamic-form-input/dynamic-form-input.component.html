@@ -13,7 +13,8 @@
     <!-- Dropdown -->
     <select *ngSwitchCase="'dropdown'"
         [id]="input.key"
-        [formControlName]="input.key">
+        [formControlName]="input.key"
+        class="form-control">
 
         <option *ngFor="let opt of input.options"
             [value]="opt.key">

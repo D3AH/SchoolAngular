@@ -4,7 +4,7 @@ import { FormGroup } from '@angular/forms';
 import { InputBase } from '../types/input-base';
 
 @Component({
-  selector: 'app-dynamic-form-input',
+  selector: 'app-input',
   templateUrl: './dynamic-form-input.component.html',
   styleUrls: ['./dynamic-form-input.component.scss']
 })
