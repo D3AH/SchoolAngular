@@ -22,26 +22,26 @@ export class AgregarComponent implements OnInit {
 
   ngOnInit() {
     this.registerForm = this.formbuilder.group({
-      nombre: ['', Validators.required],
-      segundoNombre: ['', Validators.required],
-      apellido: ['', Validators.required],
-      segundoApellido: ['', Validators.required],
-      apellidoCasada: ['', Validators.required],
-      fechaNacimiento: ['', Validators.required],
-      religión: ['', Validators.required],
-      email: ['', Validators.required, Validators.email],
-      genero: ['', Validators.required],
-      departamento: ['', Validators.required],
-      municipio: ['', Validators.required],
-      zona: ['', Validators.required],
-      colonia: ['', Validators.required],
-      avenida: ['', Validators.required],
-      calle: ['', Validators.required],
-      sector: ['', Validators.required],
-      numeroCasa: ['', Validators.required],
-      celular: ['', Validators.required],
-      domicilio: ['', Validators.required],
-      otro: ['', Validators.required],
+      firstName: ['', Validators.required],
+      secondName: ['', Validators.required],
+      firstSurname: ['', Validators.required],
+      lastSurname: ['', Validators.required],
+      marriedname: ['', Validators.required],
+      birthdate: ['', Validators.required],
+      religion: ['', Validators.required],
+      email: ['', Validators.required],
+      gender: ['', Validators.required],
+      department: ['', Validators.required],
+      municipality: ['', Validators.required],
+      zone: ['', Validators.required],
+      neighborhood: ['', Validators.required],
+      avenue: ['', Validators.required],
+      street: ['', Validators.required],
+      area: ['', Validators.required],
+      houseNumber: ['', Validators.required],
+      mobileNumber: ['', Validators.required],
+      housePhone: ['', Validators.required],
+      another: ['', Validators.required]
     });
   }
 
@@ -51,6 +51,7 @@ export class AgregarComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
+    this.registerForm.value.birthdate = '2019/01/20';
     this.rest.setPerson(this.registerForm.value).subscribe(
       res => {
         console.log(res);
