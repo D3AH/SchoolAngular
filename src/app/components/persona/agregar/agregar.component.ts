@@ -26,10 +26,10 @@ export class AgregarComponent implements OnInit {
       secondName: ['', Validators.required],
       firstSurname: ['', Validators.required],
       lastSurname: ['', Validators.required],
-      marriedname: ['', Validators.required],
+      marriedname: [''],
       birthdate: ['', Validators.required],
       religion: ['', Validators.required],
-      email: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
       gender: ['', Validators.required],
       department: ['', Validators.required],
       municipality: ['', Validators.required],
@@ -49,13 +49,25 @@ export class AgregarComponent implements OnInit {
     return this.registerForm.controls;
   }
 
+  get firstName() { return this.registerForm.get('firstName'); }
+
+
   onSubmit() {
     this.submitted = true;
-    this.registerForm.value.birthdate = '2019/01/20';
-    this.rest.setPerson(this.registerForm.value).subscribe(
-      res => {
-        console.log(res);
-      }
-    );
+    // @TODO Validar formulario
+    if(this.registerForm.valid) {
+        // Formatear fecha
+      const birthdate = this.registerForm.value.birthdate;
+      this.registerForm.value.birthdate = `${birthdate.year}/${birthdate.month}/${birthdate.day}`;
+
+      this.rest.setPerson(this.registerForm.value).subscribe(
+        // @TODO manejar escenario Success | Error
+        res => {
+          console.log(res);
+        }
+      );
+    } else {
+      alert('invalide');
+    }
   }
 }
