@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { RestService } from '../../../services/rest.service';
+import { Person } from '../../../models/person';
+import { restoreView } from '@angular/core/src/render3';
 // import { Data } from '@angular/router';
 
 @Component({
@@ -10,9 +13,12 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class AgregarComponent implements OnInit {
   registerForm: FormGroup;
   submitted = false;
+  person: Person;
 
 
-  constructor(private formbuilder: FormBuilder) { }
+  constructor(private formbuilder: FormBuilder, public rest: RestService) {
+    this.person = new Person();
+  }
 
   ngOnInit() {
     this.registerForm = this.formbuilder.group({
@@ -45,14 +51,10 @@ export class AgregarComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-    // values here
-    console.log(this.registerForm.value);
-
-    if(!this.registerForm.valid) {
-      console.log('error!');
-      return;
-    }
-
-    alert('Go out here!');
+    this.rest.setPerson(this.registerForm.value).subscribe(
+      res => {
+        console.log(res);
+      }
+    );
   }
 }

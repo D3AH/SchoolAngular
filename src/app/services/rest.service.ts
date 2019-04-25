@@ -24,14 +24,14 @@ export class RestService {
     return res || [ ] || { };
   }
 
-  getPerson(): Observable<any> {
-    return this.http.get(this.endpoint + '/istPerson').pipe(
-      map(this.extractData)
-    );
-  }
+  // getPerson(): Observable<any> {
+  //   return this.http.get(this.endpoint + '/istPerson').pipe(
+  //     map(this.extractData)
+  //   );
+  // }
 
-  setPerson(person_save){
-    var params = JSON.stringify(person_save);
+  setPerson(person){
+    const params = JSON.stringify(person);
     return this.http.post(this.endpoint + '/savePerson', params, this.httpOptions).pipe(
       map(this.extractData)
     );
