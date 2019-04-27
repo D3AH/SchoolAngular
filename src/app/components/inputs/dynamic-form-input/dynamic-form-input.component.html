@@ -23,19 +23,6 @@
 
     <!-- Date -->
     <div *ngSwitchCase="'date'" class="input-group">
-        <input class="form-control"
-            [id]="input.key"
-            [formControlName]="input.key"
-            placeholder="yyyy-mm-dd"
-            ngbDatepicker #d="ngbDatepicker">
-
-        <div class="input-group-append">
-            <button class="btn btn-outline-secondary calendar"
-                (click)="d.toggle()"
-                type="button">
-                <!-- Calendar icon -->
-            </button>
-        </div>
     </div>
 
   </div>

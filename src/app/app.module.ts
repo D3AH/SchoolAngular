@@ -1,13 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { MaterialModule } from './material/material.module';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AgregarComponent } from './components/persona/agregar/agregar.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { DynamicFormInputComponent } from './components/inputs/dynamic-form-input/dynamic-form-input.component';
 
 @NgModule({
@@ -15,13 +16,14 @@ import { DynamicFormInputComponent } from './components/inputs/dynamic-form-inpu
     AppComponent,
     AgregarComponent,
     NavbarComponent,
-    DynamicFormInputComponent,
+    DynamicFormInputComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MaterialModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
