@@ -9,14 +9,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AgregarComponent } from './components/persona/agregar/agregar.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { DynamicFormInputComponent } from './components/inputs/dynamic-form-input/dynamic-form-input.component';
+import { DynamicInputComponent } from './components/forms/dynamic-input/dynamic-input.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AgregarComponent,
     NavbarComponent,
-    DynamicFormInputComponent
+    DynamicInputComponent
   ],
   imports: [
     BrowserModule,
