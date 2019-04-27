@@ -37,6 +37,8 @@ export class AgregarComponent implements OnInit {
       domicilio: ['', Validators.required],
       otro: ['', Validators.required],
     });
+    
+    console.log(this.registerForm.controls);
   }
 
   get f() {
@@ -46,7 +48,6 @@ export class AgregarComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
     // values here
-    console.log(this.registerForm.value);
 
     if(!this.registerForm.valid) {
       console.log('error!');
