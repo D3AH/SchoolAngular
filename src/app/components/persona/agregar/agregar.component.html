@@ -1,6 +1,11 @@
-<div class="app">
-  <dynamic-form [config]="config" #form="dynamicForm" (submit)="submit($event)">
+<div class="app form-block">
+  <dynamic-form
+    [class.mat-elevation-z3]="isActive"
+    [config]="config"
+    #form="dynamicForm"
+    (submit)="submit($event)">
   </dynamic-form>
   {{ form.valid }}
   {{ form.value | json }}
 </div>
+<button mat-button (click)="isActive = !isActive">Toggle Elevation</button>

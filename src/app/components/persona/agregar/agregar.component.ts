@@ -12,6 +12,7 @@ import { DynamicFormComponent } from '../../../dynamic-form/containers/dynamic-f
 export class AgregarComponent {
   @ViewChild(DynamicFormComponent) form: DynamicFormComponent;
   submitted = false;
+  isActive = false;
   
   config: FieldConfig[] = [
     {

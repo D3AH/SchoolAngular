@@ -6,16 +6,13 @@ import { FieldConfig } from '../../models/field-config.interface';
 
 @Component({
   selector: 'form-input',
-  styleUrls: ['form-input.component.scss'],
   template: `
     <div 
       class="dynamic-field form-input" 
       [formGroup]="group">
-      <label>{{ config.label }}</label>
-      <input
-        type="text"
-        [attr.placeholder]="config.placeholder"
-        [formControlName]="config.name">
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="{{config.placeholder}}" value="" [formControlName]="config.name">
+      </mat-form-field>
     </div>
   `
 })
