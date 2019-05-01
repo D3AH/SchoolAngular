@@ -11,7 +11,7 @@ import { FieldConfig } from '../../models/field-config.interface';
       class="dynamic-field form-input" 
       [formGroup]="group">
       <mat-form-field class="example-full-width">
-        <input matInput placeholder="{{config.placeholder}}" value="" [formControlName]="config.name">
+        <input matInput placeholder="{{config.label}}" value="" [formControlName]="config.name">
       </mat-form-field>
     </div>
   `

@@ -38,23 +38,23 @@ export class AgregarComponent {
     },
     {
       type: 'input',
-      label: 'SegundoApellido',
+      label: 'Segundo apellido',
       name: 'SegundoApellido',
       placeholder: 'Ingresa segundo apellido',
       validation: [Validators.required]
     },
     {
       type: 'input',
-      label: 'ApellidoCasada',
+      label: 'Apellido casada',
       name: 'apellidoCasada',
-      placeholder: 'Ingresa apellidoCasada',
+      placeholder: 'Ingresa apellido casada',
       validation: [Validators.required]
     },
     {
       type: 'input',
-      label: 'FechaNacimiento',
+      label: 'Fecha de nacimiento',
       name: 'fechaNacimiento',
-      placeholder: 'Ingresa fechaNacimiento',
+      placeholder: 'Ingresa fecha nacimiento',
       validation: [Validators.required]
     },
     {
@@ -130,28 +130,28 @@ export class AgregarComponent {
     },
     {
       type: 'input',
-      label: 'NumeroCasa',
+      label: 'Número de casa',
       name: 'numeroCasa',
-      placeholder: 'Ingresa numeroCasa',
+      placeholder: 'Ingresa número de casa',
       validation: [Validators.required]
     },
     {
       type: 'input',
-      label: 'Celular',
+      label: 'Número de teléfono (Celular)',
       name: 'celular',
       placeholder: 'Ingresa celular',
       validation: [Validators.required]
     },
     {
       type: 'input',
-      label: 'Domicilio',
+      label: 'Número de teléfono (Domicilio)',
       name: 'domicilio',
       placeholder: 'Ingresa domicilio',
       validation: [Validators.required]
     },
     {
       type: 'input',
-      label: 'Otro',
+      label: 'Número de teléfono (Otro)',
       name: 'otro',
       placeholder: 'Ingresa otro',
       validation: [Validators.required]

@@ -1,4 +1,5 @@
-<div class="app form-block">
+<div class="app form-block" [class.mat-elevation-z2]="!isActive">
+  <h2 class="mat-h2">Agregar persona</h2>
   <dynamic-form
     [class.mat-elevation-z3]="isActive"
     [config]="config"
@@ -6,8 +7,8 @@
     (submit)="submit($event)">
   </dynamic-form>
   <!-- only in dev -->
-  
+  <!--
   {{ form.valid }}
   {{ form.value | json }}
- 
+  -->
 </div>
