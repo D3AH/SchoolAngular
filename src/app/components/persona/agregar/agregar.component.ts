@@ -18,15 +18,15 @@ export class AgregarComponent {
     {
       type: 'input',
       label: 'Nombre',
-      name: 'nombre',
+      name: 'name',
       placeholder: 'Ingresa nombre',
       validation: [Validators.required]
     },
     {
       type: 'input',
-      label: 'SegundoNombre',
-      name: 'segundoNombre',
-      placeholder: 'Ingresa segundoNombre',
+      label: 'Segundo nombre',
+      name: 'segundo',
+      placeholder: 'Ingresa segundo nombre',
       validation: [Validators.required]
     },
     {
@@ -39,8 +39,8 @@ export class AgregarComponent {
     {
       type: 'input',
       label: 'SegundoApellido',
-      name: 'segundoApellido',
-      placeholder: 'Ingresa segundoApellido',
+      name: 'SegundoApellido',
+      placeholder: 'Ingresa segundo apellido',
       validation: [Validators.required]
     },
     {

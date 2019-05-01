@@ -4,16 +4,26 @@
         [(opened)]="opened"
         (opened)="events.push('open!')"
         (closed)="events.push('close!')">
-        <mat-nav-list>
-            <a mat-list-item routerLink='/'>Second Component</a>
-            <a mat-list-item routerLink='/'>First Component</a>
-        </mat-nav-list>
+        <mat-list>
+            <h3 mat-subheader>Persona</h3>
+            <mat-list-item>
+                <mat-icon mat-list-icon>person_add</mat-icon>
+                <h4 mat-line>Agregar persona</h4>
+                <p mat-line></p>
+            </mat-list-item>
+            <mat-list-item>
+                <mat-icon mat-list-icon>people</mat-icon>
+                <h4 mat-line>Crear familia</h4>
+                <p mat-line></p>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+        </mat-list>
     </mat-sidenav>
 
+    <!-- Content -->
     <mat-sidenav-content>
         <mat-toolbar color="primary">
-            <mat-icon (click)="toggle()" class="example-icon" aria-hidden="false" aria-label="Example heart icon">
-                favorite</mat-icon>
+            <span (click)="toggle()">SchoolManager</span>
         </mat-toolbar>
         <div class="container">
             <router-outlet></router-outlet>
