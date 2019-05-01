@@ -4,10 +4,29 @@ html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .form-block {
-    padding: 10px;
-    width: 10rem;
+    padding: 20px;
+    margin: auto;
+    margin-top: 40px;
+    margin-bottom: 40px;
+
+    max-width: 30rem;
+
+    background-color: white;
+
+    border-radius: 5px;
 
     .mat-form-field {
         display: block;
     }
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.container > * {
+    width: 100%;
 }
