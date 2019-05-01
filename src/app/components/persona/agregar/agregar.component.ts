@@ -72,9 +72,10 @@ export class AgregarComponent {
       validation: [Validators.required, Validators.email]
     },
     {
-      type: 'input',
+      type: 'select',
       label: 'Genero',
       name: 'genero',
+      options: ['Masculino', 'Femenino'],
       placeholder: 'Ingresa genero',
       validation: [Validators.required]
     },

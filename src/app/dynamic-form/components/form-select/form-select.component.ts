@@ -11,13 +11,15 @@ import { FieldConfig } from '../../models/field-config.interface';
     <div 
       class="dynamic-field form-select"
       [formGroup]="group">
-      <label>{{ config.label }}</label>
-      <select [formControlName]="config.name">
-        <option value="">{{ config.placeholder }}</option>
-        <option *ngFor="let option of config.options">
-          {{ option }}
-        </option>
-      </select>
+      <mat-form-field>
+        <mat-label>{{config.label}}</mat-label>
+        <mat-select [formControlName]="config.name">
+          <mat-option *ngFor="let option of config.options"
+            [value]="option">
+            {{option}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
     </div>
   `
 })
