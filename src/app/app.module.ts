@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { DynamicFormModule } from './dynamic-form/dynamic-form.module';
 import { AgregarPersonaComponent } from './components/persona/agregar-persona/agregar-persona.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { AgregarPersonaComponent } from './components/persona/agregar-persona/ag
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MaterialModule,
-    DynamicFormModule
+    DynamicFormModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

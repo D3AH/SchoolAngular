@@ -3,6 +3,7 @@ import { Validators } from '@angular/forms';
 
 import { DynamicFormComponent } from 'src/app/dynamic-form/containers/dynamic-form/dynamic-form.component';
 import { FieldConfig } from 'src/app/dynamic-form/models/field-config.interface';
+import { RestService } from 'src/app/services/rest.service';
 
 @Component({
   selector: 'app-agregar-persona',
@@ -18,49 +19,49 @@ export class AgregarPersonaComponent {
     {
       type: 'input',
       label: 'Nombre',
-      name: 'name',
+      name: 'firstName',
       placeholder: 'Ingresa nombre',
       validation: [Validators.required]
     },
     {
       type: 'input',
       label: 'Segundo nombre',
-      name: 'segundo',
+      name: 'secondName',
       placeholder: 'Ingresa segundo nombre',
       validation: [Validators.required]
     },
     {
       type: 'input',
       label: 'Apellido',
-      name: 'apellido',
+      name: 'firstSurname',
       placeholder: 'Ingresa apellido',
       validation: [Validators.required]
     },
     {
       type: 'input',
       label: 'Segundo apellido',
-      name: 'SegundoApellido',
+      name: 'lastSurname',
       placeholder: 'Ingresa segundo apellido',
       validation: [Validators.required]
     },
     {
       type: 'input',
       label: 'Apellido casada',
-      name: 'apellidoCasada',
+      name: 'marriedname',
       placeholder: 'Ingresa apellido casada',
-      validation: [Validators.required]
+      validation: []
     },
     {
       type: 'input',
       label: 'Fecha de nacimiento',
-      name: 'fechaNacimiento',
+      name: 'birthdate',
       placeholder: 'Ingresa fecha nacimiento',
       validation: [Validators.required]
     },
     {
       type: 'input',
       label: 'Religión',
-      name: 'religión',
+      name: 'religion',
       placeholder: 'Ingresa religión',
       validation: [Validators.required]
     },
@@ -74,7 +75,7 @@ export class AgregarPersonaComponent {
     {
       type: 'select',
       label: 'Genero',
-      name: 'genero',
+      name: 'gender',
       options: ['Masculino', 'Femenino'],
       placeholder: 'Ingresa genero',
       validation: [Validators.required]
@@ -82,77 +83,77 @@ export class AgregarPersonaComponent {
     {
       type: 'input',
       label: 'Departamento',
-      name: 'departamento',
+      name: 'department',
       placeholder: 'Ingresa departamento',
       validation: [Validators.required]
     },
     {
       type: 'input',
       label: 'Municipio',
-      name: 'municipio',
+      name: 'municipality',
       placeholder: 'Ingresa municipio',
       validation: [Validators.required]
     },
     {
       type: 'input',
       label: 'Zona',
-      name: 'zona',
+      name: 'zone',
       placeholder: 'Ingresa zona',
       validation: [Validators.required]
     },
     {
       type: 'input',
       label: 'Colonia',
-      name: 'colonia',
+      name: 'neighborhood',
       placeholder: 'Ingresa colonia',
       validation: [Validators.required]
     },
     {
       type: 'input',
       label: 'Avenida',
-      name: 'avenida',
+      name: 'avenue',
       placeholder: 'Ingresa avenida',
       validation: [Validators.required]
     },
     {
       type: 'input',
       label: 'Calle',
-      name: 'calle',
+      name: 'street',
       placeholder: 'Ingresa calle',
       validation: [Validators.required]
     },
     {
       type: 'input',
       label: 'Sector',
-      name: 'sector',
+      name: 'area',
       placeholder: 'Ingresa sector',
       validation: [Validators.required]
     },
     {
       type: 'input',
       label: 'Número de casa',
-      name: 'numeroCasa',
+      name: 'houseNumber',
       placeholder: 'Ingresa número de casa',
       validation: [Validators.required]
     },
     {
       type: 'input',
       label: 'Número de teléfono (Celular)',
-      name: 'celular',
+      name: 'mobileNumber',
       placeholder: 'Ingresa celular',
       validation: [Validators.required]
     },
     {
       type: 'input',
       label: 'Número de teléfono (Domicilio)',
-      name: 'domicilio',
+      name: 'housePhone',
       placeholder: 'Ingresa domicilio',
       validation: [Validators.required]
     },
     {
       type: 'input',
       label: 'Número de teléfono (Otro)',
-      name: 'otro',
+      name: 'another',
       placeholder: 'Ingresa otro',
       validation: [Validators.required]
     },
@@ -162,6 +163,8 @@ export class AgregarPersonaComponent {
       name: 'submit-button'
     }
   ];
+
+  constructor(private rest: RestService) {}
 
   ngAfterViewInit(): void {
     let previousValid = this.form.valid;
@@ -176,7 +179,13 @@ export class AgregarPersonaComponent {
   }
 
   submit(value: { [name: string]: any }) {
-    console.log(value);
+    if (this.form.valid) {
+      this.rest.push('person', value).subscribe(
+        res => {
+          console.log(res);
+        }
+      );
+    }
   }
 
 }
