@@ -8,8 +8,7 @@ import { FieldConfig } from '../../models/field-config.interface';
   selector: 'form-select',
   styleUrls: ['form-select.component.scss'],
   template: `
-    <div 
-      class="dynamic-field form-select"
+    <div
       [formGroup]="group">
       <mat-form-field>
         <mat-label>{{config.label}}</mat-label>

@@ -7,10 +7,9 @@ import { FieldConfig } from '../../models/field-config.interface';
 @Component({
   selector: 'form-input',
   template: `
-    <div 
-      class="dynamic-field form-input" 
+    <div
       [formGroup]="group">
-      <mat-form-field class="example-full-width">
+      <mat-form-field>
         <input matInput placeholder="{{config.label}}" value="" [formControlName]="config.name">
       </mat-form-field>
     </div>
