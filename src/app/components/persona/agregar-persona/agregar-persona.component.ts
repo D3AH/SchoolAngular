@@ -74,10 +74,10 @@ export class AgregarPersonaComponent {
     },
     {
       type: 'select',
-      label: 'Genero',
+      label: 'Sexo',
       name: 'gender',
       options: ['Masculino', 'Femenino'],
-      placeholder: 'Ingresa genero',
+      placeholder: 'Ingresa sexo',
       validation: [Validators.required]
     },
     {

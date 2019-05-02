@@ -11,12 +11,14 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { DynamicFormModule } from './dynamic-form/dynamic-form.module';
 import { AgregarPersonaComponent } from './components/persona/agregar-persona/agregar-persona.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AgregarFamiliaComponent } from './components/familia/agregar-familia/agregar-familia.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    AgregarPersonaComponent
+    AgregarPersonaComponent,
+    AgregarFamiliaComponent
   ],
   imports: [
     BrowserModule,
