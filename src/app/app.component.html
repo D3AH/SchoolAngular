@@ -7,9 +7,9 @@
         <mat-list>
             <h3 mat-subheader>Persona</h3>
             <mat-list-item>
-                <mat-icon mat-list-icon>person_add</mat-icon>
-                <h4 mat-line>Agregar persona</h4>
-                <p mat-line></p>
+                <mat-icon mat-list-icon (click)="routeTo()">person_add</mat-icon>
+                <h4 mat-line (click)="routeTo()">Agregar persona</h4>
+                <p mat-line (click)="routeTo()"></p>
             </mat-list-item>
             <mat-list-item>
                 <mat-icon mat-list-icon>people</mat-icon>
@@ -23,7 +23,8 @@
     <!-- Content -->
     <mat-sidenav-content>
         <mat-toolbar color="primary">
-            <span (click)="toggle()">SchoolManager</span>
+            <mat-icon (click)="toggle()">menu</mat-icon>
+            <!-- <span (click)="toggle()">SchoolManager</span> -->
         </mat-toolbar>
         <div class="container">
             <router-outlet></router-outlet>
