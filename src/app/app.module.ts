@@ -1,35 +1,31 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { AppRoutingModule } from './app-routing.module';
+import { MaterialModule } from './modules/material/material.module';
 
-import { RestService } from './services/rest.service';
-
+import { AppRoutingModule } from './modules/app-routing.module';
 import { AppComponent } from './app.component';
 import { AgregarComponent } from './components/persona/agregar/agregar.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { DynamicFormInputComponent } from './components/inputs/dynamic-form-input/dynamic-form-input.component';
-
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-
+import { DynamicFormModule } from './dynamic-form/dynamic-form.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     AgregarComponent,
-    NavbarComponent,
-    DynamicFormInputComponent
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule,
     ReactiveFormsModule,
-    HttpClientModule
+    BrowserAnimationsModule,
+    MaterialModule,
+    DynamicFormModule
   ],
-  providers: [RestService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

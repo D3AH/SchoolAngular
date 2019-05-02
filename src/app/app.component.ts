@@ -2,19 +2,15 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  templateUrl: './app.component.html'
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   datos;
+  events: string[] = [];
+  opened: boolean;
 
-  ngOnInit(): void {
-    this.getData((json) => this.datos = json);
-  }
-
-  getData(func) {
-    fetch('https://jsonplaceholder.typicode.com/todos/1')
-      .then(response => response.json())
-      .then(json => func(json));
-  }
+  toggle() {
+    this.opened = !this.opened;
+    console.log(this.opened);
+  }  
 }

@@ -1,4 +1,32 @@
-<app-navbar></app-navbar>
-<div class="container">
-  <router-outlet></router-outlet>
-</div>
+<mat-sidenav-container class="example-container">
+    <mat-sidenav
+        #sidenav mode="side"
+        [(opened)]="opened"
+        (opened)="events.push('open!')"
+        (closed)="events.push('close!')">
+        <mat-list>
+            <h3 mat-subheader>Persona</h3>
+            <mat-list-item>
+                <mat-icon mat-list-icon>person_add</mat-icon>
+                <h4 mat-line>Agregar persona</h4>
+                <p mat-line></p>
+            </mat-list-item>
+            <mat-list-item>
+                <mat-icon mat-list-icon>people</mat-icon>
+                <h4 mat-line>Crear familia</h4>
+                <p mat-line></p>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+        </mat-list>
+    </mat-sidenav>
+
+    <!-- Content -->
+    <mat-sidenav-content>
+        <mat-toolbar color="primary">
+            <span (click)="toggle()">SchoolManager</span>
+        </mat-toolbar>
+        <div class="container">
+            <router-outlet></router-outlet>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

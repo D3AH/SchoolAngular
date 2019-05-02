@@ -1,101 +1,37 @@
-$enable-shadows: true;
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
 
-// Importing all bootstrap
-@import 'functions';
-@import 'variables';
-@import 'mixins';
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-@import 'root';
-@import 'reboot';
-@import 'grid';
-@import 'type';
-@import 'utilities';
-
-@import 'forms';
-@import 'input-group';
-@import 'navbar';
-@import 'buttons';
-
-$form-padding: 25px;
-$rounded: 0.25rem;
-
-body {
-  background-color: #DAE1E7;
+.container {
+    display: flex;
+    flex-direction: column;
+    padding-left: 5%;
+    padding-right: 5%;
 }
 
-section.row {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+.container > * {
+    width: 100%;
 }
 
-.shadow-md {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,.12), 0 2px 4px 0 rgba(0,0,0,.08);
-}
+.form-block {
+    padding: 20px;
+    margin: auto;
+    margin-top: 40px;
+    margin-bottom: 40px;
 
-// Forms
-.form-container {
-  @extend .shadow-md;
-  padding: $form-padding;
-  border-radius: $rounded;
-  margin-bottom: 15px;
-  background-color: white;
+    max-width: 35rem;
 
-  label {
-    font-size: .875rem;
-    margin-bottom: 0.25rem !important;
-    font-weight: 700;
-    color: #606f7b;
-  }
+    background-color: white;
 
-  input {
-    background-color: $light;
-    // border-radius: 0.7rem;
-    font-size: 1rem;
-  }
+    border-radius: 5px;
 
-  .form-control:focus {
-      color: unset;
-      background-color: unset;
-      border-color: none;
-      outline: 0;
-      box-shadow: none;
-      /* box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 0 0.2rem rgba(0, 123, 255, 0.25); */
-  }
+    dynamic-form {
+        padding : 10px;
 
-  .form-control:focus, input:focus {
-    background-color: #fff;
-    border-bottom: 3px solid $primary;
-    font-size: 1.1rem;
-    // font-weight: 500;
-  }
-}
-
-input[type="submit"] {
-  transition: all 0.2s ease-in-out;
-  font: 18px Helvetica, Arial, sans-serif;
-  border: none;
-  background: #1aaf75;
-  color: #fff;
-  padding: 16px 40px;
-  
-  &:hover {
-    background: #109f67;
-  }
-}
-
-.menu {
-  width: 100%;
-  position: relative;
-  top: 15px;
-  left: 15px;
-
-  button {
-    margin-right: 10px;
-    min-width: 6rem;
-  }
-}
-
-
-ngb-datepicker {
-  background-color: white !important;
+        mat-form-field {
+            width: 100%;
+            display: block;
+        }
+    }
 }
