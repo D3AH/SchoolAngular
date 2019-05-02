@@ -10,6 +10,11 @@ export class AppComponent {
   events: string[] = [];
   opened: boolean;
 
+  links = [
+    { path: '/persona/agregar', icon: 'person_add', label: 'Agregar persona' },
+    { path: '/agregar', icon: 'peoples', label: 'Crear familia' }
+  ];
+
   constructor(private router: Router) {}
 
   toggle() {
@@ -18,6 +23,6 @@ export class AppComponent {
   }
 
   routeTo(route) {
-    this.router.navigate(['/agregar']);
+    this.router.navigate([route]);
   }
 }
