@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AgregarComponent } from '../components/persona/agregar/agregar.component';
+import { AgregarPersonaComponent } from '../components/persona/agregar-persona/agregar-persona.component';
 
 const routes: Routes = [
-  {path: 'agregar', component: AgregarComponent}
+  { path: 'persona/agregar', component: AgregarPersonaComponent }
 ];
 
 @NgModule({

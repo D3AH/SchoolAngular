@@ -1,19 +1,19 @@
 import { Component, ViewChild, AfterViewInit } from '@angular/core';
 import { Validators } from '@angular/forms';
 
-import { FieldConfig } from '../../../dynamic-form/models/field-config.interface';
-import { DynamicFormComponent } from '../../../dynamic-form/containers/dynamic-form/dynamic-form.component';
+import { DynamicFormComponent } from 'src/app/dynamic-form/containers/dynamic-form/dynamic-form.component';
+import { FieldConfig } from 'src/app/dynamic-form/models/field-config.interface';
 
 @Component({
-  selector: 'app-agregar',
-  templateUrl: './agregar.component.html',
-  styleUrls: ['./agregar.component.scss']
+  selector: 'app-agregar-persona',
+  templateUrl: './agregar-persona.component.html',
+  styleUrls: ['./agregar-persona.component.scss']
 })
-export class AgregarComponent {
+export class AgregarPersonaComponent {
   @ViewChild(DynamicFormComponent) form: DynamicFormComponent;
   submitted = false;
   isActive = false;
-  
+
   config: FieldConfig[] = [
     {
       type: 'input',
@@ -158,8 +158,8 @@ export class AgregarComponent {
     },
     {
       type: 'button',
-      label: 'Otro',
-      name: 'otro'
+      label: 'Agregar',
+      name: 'submit-button'
     }
   ];
 
@@ -178,4 +178,5 @@ export class AgregarComponent {
   submit(value: { [name: string]: any }) {
     console.log(value);
   }
+
 }

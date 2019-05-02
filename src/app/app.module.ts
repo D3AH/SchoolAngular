@@ -7,15 +7,15 @@ import { MaterialModule } from './modules/material/material.module';
 
 import { AppRoutingModule } from './modules/app-routing.module';
 import { AppComponent } from './app.component';
-import { AgregarComponent } from './components/persona/agregar/agregar.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { DynamicFormModule } from './dynamic-form/dynamic-form.module';
+import { AgregarPersonaComponent } from './components/persona/agregar-persona/agregar-persona.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AgregarComponent,
-    NavbarComponent
+    NavbarComponent,
+    AgregarPersonaComponent
   ],
   imports: [
     BrowserModule,
