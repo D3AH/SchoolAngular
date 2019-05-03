@@ -1,0 +1,36 @@
+Persona
+
+{Tabla aparte}	Email
+		* No duplicado
+		* Validar si es real		---Out of Scope (No se hace)
+		* Activo
+		* Dueño	
+
+{Tabla aparte}	Teléfono
+		* Cantidad de digitos (8).
+		* País +502 TABLA - (ISO)
+
+Apellido Casada
+	Campos: Nombre1, Nombre2, Apellido1, Apellido2, Apellido Casda, Sexo, Estado Civil
+	Validaciones		
+		*Nombre1(Obligatorio).
+		*Apellido1(Obligatorio).
+		*Apellido casada solo válido para sexo  =  Femenino
+		*Validar el estado civil para ver si se puede poner el apellido casada, si no es casada no se puede
+			tener o colocar el apellido casada.
+		* Poner "de" cuando se ingrese el nombre de casada.
+		* Si tiene 3 nombre, los otros 2 siguentes al primero, se colocan en el campo nombre2
+		* Para una persona casada, se puede colocar solo sus nombres y el apellido de casada, sin necesidad de los otros apellidos o bien,
+			poner cualquier apellido que quiera.
+		* Tiene que tener tilde.
+Buscar
+	* Iniciar la busqueda despues de la 3ra letra
+	* En la busqueda se tiene que omitir las tildes 
+
+Direccion fisica
+	* Son varios campos, se debe de tener en cuenta si viven en edificios, casa normal,etc.
+	* Tabla componentes 
+		-id-Nombre,Descripcion,Lable,Ordes
+Mas Sencillo
+	UX
+	UI

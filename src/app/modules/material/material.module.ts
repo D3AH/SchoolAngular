@@ -9,6 +9,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule, MatListModule } from '@angular/material';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatStepperModule } from '@angular/material/stepper';
+import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 
 
@@ -26,6 +27,7 @@ import { MatButtonModule } from '@angular/material/button';
     MatNativeDateModule,
     MatDatepickerModule,
     MatStepperModule,
+    MatCardModule,
     MatButtonModule
   ],
   exports: [
@@ -41,6 +43,7 @@ import { MatButtonModule } from '@angular/material/button';
     MatNativeDateModule,
     MatDatepickerModule,
     MatStepperModule,
+    MatCardModule,
     MatButtonModule
   ]
 })
