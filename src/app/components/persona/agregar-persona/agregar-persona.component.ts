@@ -14,6 +14,8 @@ export class AgregarPersonaComponent {
   @ViewChild(DynamicFormComponent) form: DynamicFormComponent;
   submitted = false;
   isActive = false;
+  isLinear = true;
+  disabled = true;
 
   config: FieldConfig[] = [
     {
@@ -52,7 +54,7 @@ export class AgregarPersonaComponent {
       validation: []
     },
     {
-      type: 'input',
+      type: 'date',
       label: 'Fecha de nacimiento',
       name: 'birthdate',
       placeholder: 'Ingresa fecha nacimiento',
@@ -79,11 +81,23 @@ export class AgregarPersonaComponent {
       options: ['Masculino', 'Femenino'],
       placeholder: 'Ingresa sexo',
       validation: [Validators.required]
+    }
+  ];
+
+  phoneFields: FieldConfig[] = [
+    {
+      type: 'input',
+      name: 'number',
+      label: 'Número',
+      placeholder: 'Número',
+      validation: [Validators.required, Validators.minLength(8), Validators.maxLength(8)]
     },
     {
-      type: 'button',
-      label: 'Agregar',
-      name: 'submit-button'
+      type: 'input',
+      name: 'description',
+      label: 'Descripción',
+      placeholder: 'Descripción',
+      validation: [Validators.required]
     }
   ];
 
@@ -96,6 +110,8 @@ export class AgregarPersonaComponent {
         previousValid = this.form.valid;
         this.form.setDisabled('submit', !previousValid);
       }
+
+      this.disabled = !this.form.valid;
     });
 
     this.form.setDisabled('submit', true);

@@ -1,15 +1,47 @@
 <div class="app form-block" [class.mat-elevation-z2]="!isActive">
+    <button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
+      {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
+    </button>
+    {{ isLinear }}
     <h2 class="mat-h2">Agregar persona</h2>
-    <dynamic-form
-      [class.mat-elevation-z3]="isActive"
-      [config]="config"
-      #form="dynamicForm"
-      (submit)="submit($event)">
-    </dynamic-form>
-    <!-- only in dev -->
-    <!--
-    {{ form.valid }}
-    {{ form.value | json }}
-    -->
-  </div>
-  
+    <mat-horizontal-stepper [linear]="isLinear" labelPosition="bottom" #stepper>
+      <mat-step [stepControl]="form">
+        <ng-template matStepLabel>Datos básicos</ng-template>
+        <dynamic-form
+          [class.mat-elevation-z3]="isActive"
+          [config]="config"
+          #form="dynamicForm"
+          (submit)="submit($form)">
+        </dynamic-form>
+        <div>
+          <button
+            matStepperNext
+            mat-raised-button
+            (click)="submit($event)"
+            [disabled]="disabled"
+            color="primary">
+            Siguiente
+          </button>
+        </div>
+        {{ form.valid }}
+        {{ form.value | json }}
+      </mat-step>
+      <mat-step [stepControl]="form" optional>
+        <ng-template matStepLabel>Teléfonos</ng-template>
+        <dynamic-form
+          [class.mat-elevation-z3]="isActive"
+          [config]="phoneFields"
+          #form="dynamicForm"
+          (submit)="submit($event)">
+        </dynamic-form>
+      </mat-step>
+      <mat-step optional>
+        <ng-template matStepLabel>Dirección</ng-template>
+        You are now done.
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button (click)="stepper.reset()">Reset</button>
+        </div>
+      </mat-step>
+    </mat-horizontal-stepper>
+</div>
