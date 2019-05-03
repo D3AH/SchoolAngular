@@ -12,13 +12,15 @@ import { DynamicFormModule } from './dynamic-form/dynamic-form.module';
 import { AgregarPersonaComponent } from './components/persona/agregar-persona/agregar-persona.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AgregarFamiliaComponent } from './components/familia/agregar-familia/agregar-familia.component';
+import { IndexComponent } from './components/index/index.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     AgregarPersonaComponent,
-    AgregarFamiliaComponent
+    AgregarFamiliaComponent,
+    IndexComponent
   ],
   imports: [
     BrowserModule,
