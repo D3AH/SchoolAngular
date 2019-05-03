@@ -75,86 +75,9 @@ export class AgregarPersonaComponent {
     {
       type: 'select',
       label: 'Sexo',
-      name: 'gender',
+      name: 'sex',
       options: ['Masculino', 'Femenino'],
       placeholder: 'Ingresa sexo',
-      validation: [Validators.required]
-    },
-    {
-      type: 'input',
-      label: 'Departamento',
-      name: 'department',
-      placeholder: 'Ingresa departamento',
-      validation: [Validators.required]
-    },
-    {
-      type: 'input',
-      label: 'Municipio',
-      name: 'municipality',
-      placeholder: 'Ingresa municipio',
-      validation: [Validators.required]
-    },
-    {
-      type: 'input',
-      label: 'Zona',
-      name: 'zone',
-      placeholder: 'Ingresa zona',
-      validation: [Validators.required]
-    },
-    {
-      type: 'input',
-      label: 'Colonia',
-      name: 'neighborhood',
-      placeholder: 'Ingresa colonia',
-      validation: [Validators.required]
-    },
-    {
-      type: 'input',
-      label: 'Avenida',
-      name: 'avenue',
-      placeholder: 'Ingresa avenida',
-      validation: [Validators.required]
-    },
-    {
-      type: 'input',
-      label: 'Calle',
-      name: 'street',
-      placeholder: 'Ingresa calle',
-      validation: [Validators.required]
-    },
-    {
-      type: 'input',
-      label: 'Sector',
-      name: 'area',
-      placeholder: 'Ingresa sector',
-      validation: [Validators.required]
-    },
-    {
-      type: 'input',
-      label: 'Número de casa',
-      name: 'houseNumber',
-      placeholder: 'Ingresa número de casa',
-      validation: [Validators.required]
-    },
-    {
-      type: 'input',
-      label: 'Número de teléfono (Celular)',
-      name: 'mobileNumber',
-      placeholder: 'Ingresa celular',
-      validation: [Validators.required]
-    },
-    {
-      type: 'input',
-      label: 'Número de teléfono (Domicilio)',
-      name: 'housePhone',
-      placeholder: 'Ingresa domicilio',
-      validation: [Validators.required]
-    },
-    {
-      type: 'input',
-      label: 'Número de teléfono (Otro)',
-      name: 'another',
-      placeholder: 'Ingresa otro',
       validation: [Validators.required]
     },
     {
