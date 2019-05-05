@@ -88,11 +88,11 @@ export class AgregarPersonaComponent {
 
   phoneFields: FieldConfig[] = [
     {
-      type: 'input',
+      type: 'phone',
       name: 'number',
       label: 'Número',
       placeholder: 'Número',
-      validation: [Validators.required, Validators.minLength(8), Validators.maxLength(8)]
+      validation: [Validators.required, Validators.min(10000000), Validators.max(99999999)]
     },
     {
       type: 'input',
@@ -137,5 +137,7 @@ export class AgregarPersonaComponent {
       );
     }
   }
+
+  submit(value: {[] })
 
 }
