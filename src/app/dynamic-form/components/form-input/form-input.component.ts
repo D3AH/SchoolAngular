@@ -10,7 +10,7 @@ import { FieldConfig } from '../../models/field-config.interface';
     <div
       [formGroup]="group">
       <mat-form-field>
-        <input matInput placeholder="{{config.label}}" value="" [formControlName]="config.name">
+        <input matInput type="{{config.inputType}}" placeholder="{{config.label}}" value="" [formControlName]="config.name">
       </mat-form-field>
     </div>
   `
