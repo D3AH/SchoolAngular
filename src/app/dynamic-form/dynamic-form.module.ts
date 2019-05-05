@@ -9,6 +9,7 @@ import { FormInputComponent } from './components/form-input/form-input.component
 import { FormSelectComponent } from './components/form-select/form-select.component';
 import { MaterialModule } from '../modules/material/material.module';
 import { FormDateComponent } from './components/form-date/form-date.component';
+import { FormPhoneComponent } from './components/form-phone/form-phone.component';
 
 @NgModule({
   imports: [
@@ -22,7 +23,8 @@ import { FormDateComponent } from './components/form-date/form-date.component';
     FormButtonComponent,
     FormInputComponent,
     FormSelectComponent,
-    FormDateComponent
+    FormDateComponent,
+    FormPhoneComponent
   ],
   exports: [
     DynamicFormComponent
@@ -31,7 +33,8 @@ import { FormDateComponent } from './components/form-date/form-date.component';
     FormButtonComponent,
     FormInputComponent,
     FormSelectComponent,
-    FormDateComponent
+    FormDateComponent,
+    FormPhoneComponent
   ]
 })
 export class DynamicFormModule {}

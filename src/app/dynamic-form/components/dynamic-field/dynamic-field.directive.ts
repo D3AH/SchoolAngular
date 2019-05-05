@@ -8,12 +8,14 @@ import { FormSelectComponent } from '../form-select/form-select.component';
 import { Field } from '../../models/field.interface';
 import { FieldConfig } from '../../models/field-config.interface';
 import { FormDateComponent } from '../form-date/form-date.component';
+import { FormPhoneComponent } from '../form-phone/form-phone.component';
 
 const components: {[type: string]: Type<Field>} = {
   button: FormButtonComponent,
   input: FormInputComponent,
   select: FormSelectComponent,
-  date: FormDateComponent
+  date: FormDateComponent,
+  phone: FormPhoneComponent
 };
 
 @Directive({
