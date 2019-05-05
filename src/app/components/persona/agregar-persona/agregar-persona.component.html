@@ -6,14 +6,13 @@
         <dynamic-form
           [class.mat-elevation-z3]="isActive"
           [config]="config"
-          #form1
-          (submit)="submit($form)">
+          #form1>
         </dynamic-form>
         <button
           matStepperNext
           mat-raised-button
-          (click)="submit($event)"
           [disabled]="disabled"
+          (click)="submit($event)"
           color="primary">
           Siguiente
         </button>
@@ -25,11 +24,15 @@
         <dynamic-form
           [class.mat-elevation-z3]="isActive"
           [config]="phoneFields"
-          #form2
-          (submit)="submit($event)">
+          #form2>
         </dynamic-form>
         <div class="menu-buttons">
-          <button mat-button matStepperNext mat-raised-button (click)="submit2($event)" color="primary">
+          <button
+            mat-button
+            matStepperNext
+            mat-raised-button
+            (click)="submit2($event)"
+            color="primary">
             {{ textButtonStep2 }}
           </button>
         </div>

@@ -4,6 +4,7 @@ import { Validators } from '@angular/forms';
 import { DynamicFormComponent } from 'src/app/dynamic-form/containers/dynamic-form/dynamic-form.component';
 import { FieldConfig } from 'src/app/dynamic-form/models/field-config.interface';
 import { RestService } from 'src/app/services/rest.service';
+import { MatStepper } from '@angular/material';
 
 @Component({
   selector: 'app-agregar-persona',
@@ -13,6 +14,7 @@ import { RestService } from 'src/app/services/rest.service';
 export class AgregarPersonaComponent {
   @ViewChild('form1') form: DynamicFormComponent;
   @ViewChild('form2') form2: DynamicFormComponent;
+
   submitted = false;
   isActive = false;
   disabled = true;
@@ -113,6 +115,7 @@ export class AgregarPersonaComponent {
         this.form.setDisabled('submit', !previousValid);
       }
 
+      this.formPersonValid = this.form.valid;
       this.disabled = !this.form.valid;
     });
 
@@ -128,7 +131,8 @@ export class AgregarPersonaComponent {
   }
 
   submit(value: { [name: string]: any }) {
-    this.formPersonValid = this.form.valid;
+    console.log(this.form.value);
+    
     if (this.form.valid) {
       this.rest.push('person', value).subscribe(
         res => {
@@ -138,6 +142,16 @@ export class AgregarPersonaComponent {
     }
   }
 
-  submit(value: {[] })
+  submit2(value: { [name: string]: any }) {
+    console.log(this.form2.value);
+
+    if (this.form2.valid) {
+      this.rest.push('phone', value).subscribe(
+        res => {
+          console.log(res);
+        }
+      );
+    }
+  }
 
 }
