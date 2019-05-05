@@ -11,11 +11,13 @@ import { RestService } from 'src/app/services/rest.service';
   styleUrls: ['./agregar-persona.component.scss']
 })
 export class AgregarPersonaComponent {
-  @ViewChild(DynamicFormComponent) form: DynamicFormComponent;
+  @ViewChild('form1') form: DynamicFormComponent;
+  @ViewChild('form2') form2: DynamicFormComponent;
   submitted = false;
   isActive = false;
-  isLinear = true;
   disabled = true;
+  textButtonStep2 = 'Omitir';
+  formPersonValid = false;
 
   config: FieldConfig[] = [
     {
@@ -101,11 +103,11 @@ export class AgregarPersonaComponent {
     }
   ];
 
-  constructor(private rest: RestService) {}
+  constructor(private rest: RestService) { }
 
   ngAfterViewInit(): void {
     let previousValid = this.form.valid;
-    this.form.changes.subscribe(()=> {
+    this.form.changes.subscribe(() => {
       if (this.form.valid !== previousValid) {
         previousValid = this.form.valid;
         this.form.setDisabled('submit', !previousValid);
@@ -114,10 +116,19 @@ export class AgregarPersonaComponent {
       this.disabled = !this.form.valid;
     });
 
-    this.form.setDisabled('submit', true);
+    let previousValid2 = this.form2.valid;
+    this.form2.changes.subscribe(() => {
+      if (this.form2.valid !== previousValid2) {
+        previousValid2 = this.form2.valid;
+        this.form.setDisabled('submit', !previousValid2);
+      }
+
+      this.textButtonStep2 = this.form2.valid ? 'Siguiente' : 'Omitir';
+    });
   }
 
   submit(value: { [name: string]: any }) {
+    this.formPersonValid = this.form.valid;
     if (this.form.valid) {
       this.rest.push('person', value).subscribe(
         res => {

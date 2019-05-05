@@ -40,3 +40,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .button {
     cursor: pointer;
 }
+
+.menu-buttons {
+    .mat-button {
+        margin-right: 10px;
+    }
+}
