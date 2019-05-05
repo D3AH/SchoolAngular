@@ -16,9 +16,7 @@ export const lastNameValidator: ValidatorFn = (control: FormGroup): ValidationEr
     if ((firstSurname && firstSurname.touched && firstSurname.value !== '')
         || (lastSurname && lastSurname.touched && lastSurname.value !== '')
         || (marriedname && marriedname.touched && marriedname.value !== '')) {
-            console.log('1');
             return null;
     }
-    console.log('2');
     return { 'lastName': true };
 }
