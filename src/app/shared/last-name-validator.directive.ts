@@ -11,12 +11,10 @@ export const lastNameValidator: ValidatorFn = (control: FormGroup): ValidationEr
     const lastSurname = control.get('lastSurname');
     const marriedname = control.get('marriedname');
 
-    
-
     if ((firstSurname && firstSurname.touched && firstSurname.value !== '')
         || (lastSurname && lastSurname.touched && lastSurname.value !== '')
         || (marriedname && marriedname.touched && marriedname.value !== '')) {
             return null;
     }
-    return { 'lastName': true };
-}
+    return { lastName: true };
+};

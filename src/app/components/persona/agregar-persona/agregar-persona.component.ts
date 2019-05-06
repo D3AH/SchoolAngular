@@ -134,7 +134,7 @@ export class AgregarPersonaComponent {
 
   submit(value: { [name: string]: any }) {
     console.log(this.form.value);
-    
+
     if (this.form.valid) {
       this.rest.push('person', value).subscribe(
         res => {
