@@ -13,6 +13,8 @@ import { AgregarPersonaComponent } from './components/persona/agregar-persona/ag
 import { HttpClientModule } from '@angular/common/http';
 import { AgregarFamiliaComponent } from './components/familia/agregar-familia/agregar-familia.component';
 import { IndexComponent } from './components/index/index.component';
+import { ListarPersonaComponent } from '../app/components/persona/listar-persona/listar-persona.component';
+
 
 @NgModule({
   declarations: [
@@ -20,6 +22,7 @@ import { IndexComponent } from './components/index/index.component';
     NavbarComponent,
     AgregarPersonaComponent,
     AgregarFamiliaComponent,
+    ListarPersonaComponent,
     IndexComponent
   ],
   imports: [
