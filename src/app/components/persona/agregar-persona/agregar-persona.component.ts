@@ -4,7 +4,7 @@ import { Validators } from '@angular/forms';
 import { DynamicFormComponent } from 'src/app/dynamic-form/containers/dynamic-form/dynamic-form.component';
 import { FieldConfig } from 'src/app/dynamic-form/models/field-config.interface';
 import { RestService } from 'src/app/services/rest.service';
-import { MatStepper } from '@angular/material';
+import { lastNameValidator } from 'src/app/shared/last-name-validator.directive';
 
 @Component({
   selector: 'app-agregar-persona',
@@ -14,6 +14,8 @@ import { MatStepper } from '@angular/material';
 export class AgregarPersonaComponent {
   @ViewChild('form1') form: DynamicFormComponent;
   @ViewChild('form2') form2: DynamicFormComponent;
+
+  validators = [lastNameValidator];
 
   submitted = false;
   isActive = false;
@@ -41,14 +43,14 @@ export class AgregarPersonaComponent {
       label: 'Apellido',
       name: 'firstSurname',
       placeholder: 'Ingresa apellido',
-      validation: [Validators.required]
+      validation: []
     },
     {
       type: 'input',
       label: 'Segundo apellido',
       name: 'lastSurname',
       placeholder: 'Ingresa segundo apellido',
-      validation: [Validators.required]
+      validation: []
     },
     {
       type: 'input',

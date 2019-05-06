@@ -24,6 +24,8 @@ import { FieldConfig } from '../../models/field-config.interface';
 export class DynamicFormComponent implements OnChanges, OnInit {
   @Input()
   config: FieldConfig[] = [];
+  @Input()
+  validators: [] = [];
 
   @Output()
   submit: EventEmitter<any> = new EventEmitter<any>();
@@ -61,7 +63,7 @@ export class DynamicFormComponent implements OnChanges, OnInit {
   }
 
   createGroup() {
-    const group = this.fb.group({});
+    const group = this.fb.group({}, { validators: this.validators });
     this.controls.forEach(control => group.addControl(control.name, this.createControl(control)));
     return group;
   }
@@ -79,7 +81,7 @@ export class DynamicFormComponent implements OnChanges, OnInit {
 
   setDisabled(name: string, disable: boolean) {
     if (this.form.controls[name]) {
-      const method = disable ? 'disable': 'enable';
+      const method = disable ? 'disable' : 'enable';
       this.form.controls[name][method]();
       return;
     }

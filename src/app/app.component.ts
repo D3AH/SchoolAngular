@@ -19,7 +19,6 @@ export class AppComponent {
 
   toggle() {
     this.opened = !this.opened;
-    console.log(this.opened);
   }
 
   routeTo(route) {
