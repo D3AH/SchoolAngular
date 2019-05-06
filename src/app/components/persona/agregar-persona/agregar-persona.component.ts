@@ -5,6 +5,7 @@ import { DynamicFormComponent } from 'src/app/dynamic-form/containers/dynamic-fo
 import { FieldConfig } from 'src/app/dynamic-form/models/field-config.interface';
 import { RestService } from 'src/app/services/rest.service';
 import { lastNameValidator } from 'src/app/shared/last-name-validator.directive';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-agregar-persona',
@@ -14,6 +15,7 @@ import { lastNameValidator } from 'src/app/shared/last-name-validator.directive'
 export class AgregarPersonaComponent {
   @ViewChild('form1') form: DynamicFormComponent;
   @ViewChild('form2') form2: DynamicFormComponent;
+  @ViewChild('form3') form3: DynamicFormComponent;
 
   validators = [lastNameValidator];
 
@@ -21,7 +23,11 @@ export class AgregarPersonaComponent {
   isActive = false;
   disabled = true;
   textButtonStep2 = 'Omitir';
+  textButtonStep3 = 'Omitir';
   formPersonValid = false;
+
+  addressComponents;
+  person;
 
   config: FieldConfig[] = [
     {
@@ -36,7 +42,7 @@ export class AgregarPersonaComponent {
       label: 'Segundo nombre',
       name: 'secondName',
       placeholder: 'Ingresa segundo nombre',
-      validation: [Validators.required]
+      validation: []
     },
     {
       type: 'input',
@@ -53,8 +59,16 @@ export class AgregarPersonaComponent {
       validation: []
     },
     {
+      type: 'select',
+      label: 'Estado civil',
+      name: 'civilStatus',
+      options: ['Casado', 'Soltero'],
+      placeholder: 'Estado civil',
+      validation: []
+    },
+    {
       type: 'input',
-      label: 'Apellido casada',
+      label: 'Apellido de casada',
       name: 'marriedname',
       placeholder: 'Ingresa apellido casada',
       validation: []
@@ -107,7 +121,72 @@ export class AgregarPersonaComponent {
     }
   ];
 
-  constructor(private rest: RestService) { }
+  directionFields: FieldConfig[] = [
+    {
+      type: 'input',
+      name: 'description',
+      label: 'Descripción',
+      placeholder: 'Descripción',
+      validation: [Validators.required]
+    },
+    {
+      type: 'input',
+      name: 'departamento',
+      label: 'Departamento',
+      placeholder: 'Departamento',
+      validation: []
+    },
+    {
+      type: 'input',
+      name: 'municipio',
+      label: 'Municipio',
+      placeholder: 'Municipio',
+      validation: []
+    },
+    {
+      type: 'input',
+      name: 'zone',
+      label: 'Zona',
+      placeholder: 'Zona',
+      validation: []
+    },
+    {
+      type: 'input',
+      name: 'avenue',
+      label: 'Avenida',
+      placeholder: 'Avenida',
+      validation: []
+    },
+    {
+      type: 'input',
+      name: 'street',
+      label: 'Calle',
+      placeholder: 'Calle',
+      validation: []
+    },
+    {
+      type: 'input',
+      name: 'number',
+      label: 'Número',
+      placeholder: 'Número',
+      validation: []
+    },
+    {
+      type: 'input',
+      name: 'level',
+      label: 'Nivel',
+      placeholder: 'Nivel',
+      validation: []
+    }
+  ]
+
+  constructor(private rest: RestService, private router: Router) {
+    this.rest.findAll('addressComponents').subscribe(
+      res => {
+        this.addressComponents =  res.addressComponents;
+      }
+    )
+}
 
   ngAfterViewInit(): void {
     let previousValid = this.form.valid;
@@ -130,13 +209,35 @@ export class AgregarPersonaComponent {
 
       this.textButtonStep2 = this.form2.valid ? 'Siguiente' : 'Omitir';
     });
+
+    let previousValid3 = this.form3.valid;
+    this.form3.changes.subscribe(() => {
+      if (this.form3.valid !== previousValid3) {
+        previousValid3 = this.form3.valid;
+        this.form.setDisabled('submit', !previousValid3);
+      }
+
+      this.textButtonStep3 = this.form2.valid ? 'Siguiente' : 'Omitir';
+    });
   }
 
   submit(value: { [name: string]: any }) {
-    console.log(this.form.value);
 
     if (this.form.valid) {
-      this.rest.push('person', value).subscribe(
+      this.rest.push('persons', this.form.value).subscribe(
+        res => {
+          console.log(res);
+          this.person = res;
+        }
+      );
+    }
+  }
+
+  submit2(value: { [name: string]: any }) {
+    this.form2.value.person = this.person.person._id;
+
+    if (this.form2.valid) {
+      this.rest.push('phones', this.form2.value).subscribe(
         res => {
           console.log(res);
         }
@@ -144,13 +245,14 @@ export class AgregarPersonaComponent {
     }
   }
 
-  submit2(value: { [name: string]: any }) {
-    console.log(this.form2.value);
+  submit3(value: { [name: string]: any }) {
+    this.form3.value.person = this.person.person._id;
 
-    if (this.form2.valid) {
-      this.rest.push('phone', value).subscribe(
+    if (this.form3.valid) {
+      this.rest.push('addresses', this.form3.value).subscribe(
         res => {
           console.log(res);
+          this.router.navigate(['/']);
         }
       );
     }
