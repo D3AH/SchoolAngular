@@ -14,7 +14,7 @@ export class ListarPersonaComponent implements OnInit {
   ngOnInit() {
     this.rest.findAll('persons').subscribe(res =>{
       console.log(res);
-      this.persons = res.persons;
+      this.persons = res['persons'];
     });
   }
 

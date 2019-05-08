@@ -183,7 +183,7 @@ export class AgregarPersonaComponent {
   constructor(private rest: RestService, private router: Router) {
     this.rest.findAll('addressComponents').subscribe(
       res => {
-        this.addressComponents =  res.addressComponents;
+        this.addressComponents = res['addressComponents'];
       }
     )
 }
