@@ -100,7 +100,7 @@ export class AgregarPersonaComponent {
       label: 'Email',
       name: 'email',
       placeholder: 'Ingresa email',
-      validation: [Validators.required, Validators.email]
+      // validation: [Validators.required, Validators.email]
     }
   ];
 
