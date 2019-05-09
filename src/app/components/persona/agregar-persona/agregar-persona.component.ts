@@ -152,6 +152,34 @@ export class AgregarPersonaComponent {
     },
     {
       type: 'input',
+      name: 'colonia',
+      label: 'Colonia',
+      placeholder: 'Colonia',
+      validation: []
+    },
+    {
+      type: 'input',
+      name: 'sector',
+      label: 'Sector',
+      placeholder: 'Sector',
+      validation: []
+    },
+    {
+      type: 'input',
+      name: 'cuadra',
+      label: 'Cuadra',
+      placeholder: 'Cuadra',
+      validation: []
+    },
+    {
+      type: 'input',
+      name: 'edificio',
+      label: 'Edificio',
+      placeholder: 'Edificio',
+      validation: []
+    },
+    {
+      type: 'input',
       name: 'avenue',
       label: 'Avenida',
       placeholder: 'Avenida',
@@ -188,12 +216,6 @@ export class AgregarPersonaComponent {
       if (this.form.valid !== previousValid) {
         previousValid = this.form.valid;
         this.form.setDisabled('submit', !previousValid);
-      }
-
-      if(this.form.value.sex === 'Masculino' || this.form.value.civilStatus === 'Soltero') {
-        this.form.setDisabled('marriedname', true);
-      } else {
-        this.form.setDisabled('marriedname', false);
       }
 
       this.formPersonValid = this.form.valid;
