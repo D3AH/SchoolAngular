@@ -121,72 +121,24 @@ export class AgregarPersonaComponent {
     }
   ];
 
-  directionFields: FieldConfig[] = [
-    {
-      type: 'input',
-      name: 'description',
-      label: 'Descripción',
-      placeholder: 'Descripción',
-      validation: [Validators.required]
-    },
-    {
-      type: 'input',
-      name: 'departamento',
-      label: 'Departamento',
-      placeholder: 'Departamento',
-      validation: []
-    },
-    {
-      type: 'input',
-      name: 'municipio',
-      label: 'Municipio',
-      placeholder: 'Municipio',
-      validation: []
-    },
-    {
-      type: 'input',
-      name: 'zone',
-      label: 'Zona',
-      placeholder: 'Zona',
-      validation: []
-    },
-    {
-      type: 'input',
-      name: 'avenue',
-      label: 'Avenida',
-      placeholder: 'Avenida',
-      validation: []
-    },
-    {
-      type: 'input',
-      name: 'street',
-      label: 'Calle',
-      placeholder: 'Calle',
-      validation: []
-    },
-    {
-      type: 'input',
-      name: 'number',
-      label: 'Número',
-      placeholder: 'Número',
-      validation: []
-    },
-    {
-      type: 'input',
-      name: 'level',
-      label: 'Nivel',
-      placeholder: 'Nivel',
-      validation: []
-    }
-  ]
+  directionFields: FieldConfig[] = [];
 
   constructor(private rest: RestService, private router: Router) {
     this.rest.findAll('addressComponents').subscribe(
       res => {
         this.addressComponents = res['addressComponents'];
+        this.addressComponents.forEach((component) => {
+          this.directionFields.push({
+            type: 'input',
+            name: component.priority,
+            label: component.name,
+            placeholder: component.name,
+            validation: []
+          });
+        });
       }
     )
-}
+  }
 
   ngAfterViewInit(): void {
     let previousValid = this.form.valid;

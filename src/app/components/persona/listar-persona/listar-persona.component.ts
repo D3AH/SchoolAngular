@@ -21,7 +21,7 @@ export class ListarPersonaComponent implements OnInit {
   getPerson(){
     this.rest.findAll('persons').subscribe(res =>{
       console.log(res);
-      this.persons = res.persons;
+      this.persons = res['persons'];
     });
   }
 
