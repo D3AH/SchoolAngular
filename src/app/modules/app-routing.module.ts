@@ -2,10 +2,14 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AgregarPersonaComponent } from '../components/persona/agregar-persona/agregar-persona.component';
 import { IndexComponent } from '../components/index/index.component';
+import { ListarPersonaComponent } from '../components/persona/listar-persona/listar-persona.component';
+import { AgregarTelefonoComponent } from '../components/persona/agregar-telefono/agregar-telefono.component';
 
 const routes: Routes = [
   { path: '', component: IndexComponent },
-  { path: 'persona/agregar', component: AgregarPersonaComponent }
+  { path: 'persona/agregar', component: AgregarPersonaComponent },
+  { path: 'persona/listar', component: ListarPersonaComponent},
+  { path: 'persona/agregarTelefono', component: AgregarTelefonoComponent}
 ];
 
 @NgModule({
