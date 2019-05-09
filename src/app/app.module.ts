@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AgregarFamiliaComponent } from './components/familia/agregar-familia/agregar-familia.component';
 import { IndexComponent } from './components/index/index.component';
 import { ListarPersonaComponent } from '../app/components/persona/listar-persona/listar-persona.component';
+import { AgregarTelefonoComponent } from './components/persona/agregar-telefono/agregar-telefono.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { ListarPersonaComponent } from '../app/components/persona/listar-persona
     AgregarPersonaComponent,
     AgregarFamiliaComponent,
     ListarPersonaComponent,
-    IndexComponent
+    IndexComponent,
+    AgregarTelefonoComponent
   ],
   imports: [
     BrowserModule,
