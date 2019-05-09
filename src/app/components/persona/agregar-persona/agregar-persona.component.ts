@@ -67,6 +67,14 @@ export class AgregarPersonaComponent {
       validation: []
     },
     {
+      type: 'select',
+      label: 'Sexo',
+      name: 'sex',
+      options: ['Masculino', 'Femenino'],
+      placeholder: 'Ingresa sexo',
+      validation: [Validators.required]
+    },
+    {
       type: 'input',
       label: 'Apellido de casada',
       name: 'marriedname',
@@ -93,14 +101,6 @@ export class AgregarPersonaComponent {
       name: 'email',
       placeholder: 'Ingresa email',
       validation: [Validators.required, Validators.email]
-    },
-    {
-      type: 'select',
-      label: 'Sexo',
-      name: 'sex',
-      options: ['Masculino', 'Femenino'],
-      placeholder: 'Ingresa sexo',
-      validation: [Validators.required]
     }
   ];
 
@@ -121,24 +121,66 @@ export class AgregarPersonaComponent {
     }
   ];
 
-  directionFields: FieldConfig[] = [];
+  directionFields: FieldConfig[] = [
+    {
+      type: 'input',
+      name: 'description',
+      label: 'Descripción',
+      placeholder: 'Descripción',
+      validation: [Validators.required]
+    },
+    {
+      type: 'input',
+      name: 'departamento',
+      label: 'Departamento',
+      placeholder: 'Departamento',
+      validation: [Validators.required]
+    },
+    {
+      type: 'input',
+      name: 'municipio',
+      label: 'Municipio',
+      placeholder: 'Municipio',
+      validation: [Validators.required]
+    },
+    {
+      type: 'input',
+      name: 'zone',
+      label: 'Zona',
+      placeholder: 'Zona',
+      validation: [Validators.required]
+    },
+    {
+      type: 'input',
+      name: 'avenue',
+      label: 'Avenida',
+      placeholder: 'Avenida',
+      validation: []
+    },
+    {
+      type: 'input',
+      name: 'street',
+      label: 'Calle',
+      placeholder: 'Calle',
+      validation: []
+    },
+    {
+      type: 'input',
+      name: 'number',
+      label: 'Número',
+      placeholder: 'Número',
+      validation: []
+    },
+    {
+      type: 'input',
+      name: 'level',
+      label: 'Nivel',
+      placeholder: 'Nivel',
+      validation: []
+    }
+  ];
 
-  constructor(private rest: RestService, private router: Router) {
-    this.rest.findAll('addressComponents').subscribe(
-      res => {
-        this.addressComponents = res['addressComponents'];
-        this.addressComponents.forEach((component) => {
-          this.directionFields.push({
-            type: 'input',
-            name: component.priority,
-            label: component.name,
-            placeholder: component.name,
-            validation: []
-          });
-        });
-      }
-    )
-  }
+  constructor(private rest: RestService, private router: Router) { }
 
   ngAfterViewInit(): void {
     let previousValid = this.form.valid;
@@ -146,6 +188,12 @@ export class AgregarPersonaComponent {
       if (this.form.valid !== previousValid) {
         previousValid = this.form.valid;
         this.form.setDisabled('submit', !previousValid);
+      }
+
+      if(this.form.value.sex === 'Masculino' || this.form.value.civilStatus === 'Soltero') {
+        this.form.setDisabled('marriedname', true);
+      } else {
+        this.form.setDisabled('marriedname', false);
       }
 
       this.formPersonValid = this.form.valid;
