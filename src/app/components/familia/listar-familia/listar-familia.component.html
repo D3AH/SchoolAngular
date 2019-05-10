@@ -2,7 +2,7 @@
 <mat-list>
   <h3 mat-subheader>Familias</h3>
   <mat-list-item *ngFor="let family of families">
-    <mat-icon mat-list-icon>people</mat-icon>
+    <mat-icon (click)="open(family.id)" mat-list-icon>people</mat-icon>
     <p mat-line>
       <span *ngIf="family.father">
         <strong>Padre:</strong> {{ family.father.fullName }}

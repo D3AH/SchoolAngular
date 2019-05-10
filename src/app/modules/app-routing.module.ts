@@ -9,6 +9,7 @@ import { ListarFamiliaComponent } from '../components/familia/listar-familia/lis
 import { ListarCursosComponent } from '../components/curso/listar-cursos/listar-cursos.component';
 import { AgregarCursoComponent } from '../components/cursos/agregar-curso/agregar-curso.component';
 import { AgregarCarreraComponent } from '../components/carrera/agregar-carrera/agregar-carrera.component';
+import { AgregarHijoComponent } from '../components/familia/agregar-hijo/agregar-hijo.component';
 
 const routes: Routes = [
   { path: '', component: IndexComponent },
@@ -18,6 +19,7 @@ const routes: Routes = [
   // Familia
   { path: 'familia/listar', component: ListarFamiliaComponent },
   { path: 'familia/agregar', component: AgregarFamiliaComponent },
+  { path: 'familia/agregarHijo/:id', component: AgregarHijoComponent },
   // Cursos
   { path: 'cursos/listar', component: ListarCursosComponent},
   // Curso

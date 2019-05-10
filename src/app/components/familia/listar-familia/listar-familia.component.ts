@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RestService } from 'src/app/services/rest.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-listar-familia',
@@ -9,7 +10,7 @@ import { RestService } from 'src/app/services/rest.service';
 export class ListarFamiliaComponent implements OnInit {
   families = [];
 
-  constructor(private rest: RestService) { }
+  constructor(private rest: RestService, private router: Router) { }
 
   ngOnInit() {
     this.rest.findAll('families').subscribe(
@@ -18,12 +19,15 @@ export class ListarFamiliaComponent implements OnInit {
           this.rest.get(`families/${family._id}/names`).subscribe(
             res => {
               this.families.push(res);
-              console.log(res);
             }
           );
         });
       }
     );
+  }
+
+  open(id) {
+    this.router.navigate(['familia/agregarHijo', id]);
   }
 
 }

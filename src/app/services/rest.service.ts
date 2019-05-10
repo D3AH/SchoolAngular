@@ -65,8 +65,18 @@ export class RestService {
     );
   }
 
+  /**
+   * @TODO Una función para estos metodos.
+   */
   get(url) {
     return this.http.get(this.endpoint + url, this.httpOptions).pipe(
+      map(this.extractData)
+    );
+  }
+
+  put(url, object) {
+    const params = JSON.stringify(object);
+    return this.http.put(this.endpoint + url, params, this.httpOptions).pipe(
       map(this.extractData)
     );
   }
