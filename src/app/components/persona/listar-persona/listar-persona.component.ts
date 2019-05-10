@@ -9,7 +9,7 @@ import { RestService } from 'src/app/services/rest.service';
 export class ListarPersonaComponent implements OnInit {
   persons = [];
 
-  constructor(public rest: RestService) { }
+  constructor(private rest: RestService) { }
 
   ngOnInit() {
     this.rest.findAll('persons').subscribe(res =>{

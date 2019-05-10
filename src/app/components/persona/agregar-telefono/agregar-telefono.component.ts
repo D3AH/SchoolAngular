@@ -1,28 +1,78 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ViewChild, AfterViewInit } from '@angular/core';
+import { Validators } from '@angular/forms';
+
+import { DynamicFormComponent } from 'src/app/dynamic-form/containers/dynamic-form/dynamic-form.component';
+import { FieldConfig } from 'src/app/dynamic-form/models/field-config.interface';
 import { RestService } from 'src/app/services/rest.service';
+import { lastNameValidator } from 'src/app/shared/last-name-validator.directive';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-agregar-telefono',
   templateUrl: './agregar-telefono.component.html',
   styleUrls: ['./agregar-telefono.component.scss']
 })
-export class AgregarTelefonoComponent implements OnInit {
+export class AgregarTelefonoComponent {
+  @ViewChild('form1') form: DynamicFormComponent;
+
   persons = [];
+  submitted = false;
+  disabled = true;
 
-  constructor( public rest: RestService) { }
+  config: FieldConfig[] = [
+    {
+      type: 'select',
+      name: 'person',
+      label: 'Persona',
+      placeholder: 'Persona',
+      options: [],
+      validation: []
+    },
+    {
+      type: 'input',
+      name: 'description',
+      label: 'Descripción',
+      placeholder: 'Descripción',
+      validation: [Validators.required]
+    },
+    {
+      type: 'phone',
+      name: 'number',
+      label: 'Número',
+      placeholder: 'Número',
+      validation: [Validators.required, Validators.min(10000000), Validators.max(99999999)]
+    }
+  ];
 
-  ngOnInit() {
+  constructor(public rest: RestService) {
     this.rest.findAll('persons').subscribe(res =>{
       console.log(res);
-      this.persons = res['persons'];
+      this.config[0].options = res['persons'].map((person) => { return (person.firstName + '-' + person._id) });
     });
   }
 
-  getPerson(){
-    this.rest.findAll('persons').subscribe(res =>{
-      console.log(res);
-      this.persons = res['person'];
+  ngAfterViewInit(): void {
+    let previousValid = this.form.valid;
+    this.form.changes.subscribe(() => {
+      if (this.form.valid !== previousValid) {
+        previousValid = this.form.valid;
+        this.form.setDisabled('submit', !previousValid);
+      }
+
+      this.disabled = !this.form.valid;
     });
+  }
+
+  submit() {
+    this.form.value.person = this.form.value.person.slice(this.form.value.person.indexOf('-') + 1);
+
+    if (this.form.valid) {
+      this.rest.push('phones', this.form.value).subscribe(
+        res => {
+          console.log(res);
+        }
+      );
+    }
   }
 
 }

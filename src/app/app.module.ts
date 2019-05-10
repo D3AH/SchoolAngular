@@ -15,6 +15,7 @@ import { AgregarFamiliaComponent } from './components/familia/agregar-familia/ag
 import { IndexComponent } from './components/index/index.component';
 import { ListarPersonaComponent } from '../app/components/persona/listar-persona/listar-persona.component';
 import { AgregarTelefonoComponent } from './components/persona/agregar-telefono/agregar-telefono.component';
+import { ListarFamiliaComponent } from './components/familia/listar-familia/listar-familia.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { AgregarTelefonoComponent } from './components/persona/agregar-telefono/
     AgregarFamiliaComponent,
     ListarPersonaComponent,
     IndexComponent,
-    AgregarTelefonoComponent
+    AgregarTelefonoComponent,
+    ListarFamiliaComponent
   ],
   imports: [
     BrowserModule,

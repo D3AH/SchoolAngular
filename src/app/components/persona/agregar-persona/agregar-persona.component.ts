@@ -67,6 +67,14 @@ export class AgregarPersonaComponent {
       validation: []
     },
     {
+      type: 'select',
+      label: 'Sexo',
+      name: 'sex',
+      options: ['Masculino', 'Femenino'],
+      placeholder: 'Ingresa sexo',
+      validation: [Validators.required]
+    },
+    {
       type: 'input',
       label: 'Apellido de casada',
       name: 'marriedname',
@@ -92,15 +100,7 @@ export class AgregarPersonaComponent {
       label: 'Email',
       name: 'email',
       placeholder: 'Ingresa email',
-      validation: [Validators.required, Validators.email]
-    },
-    {
-      type: 'select',
-      label: 'Sexo',
-      name: 'sex',
-      options: ['Masculino', 'Femenino'],
-      placeholder: 'Ingresa sexo',
-      validation: [Validators.required]
+      // validation: [Validators.required, Validators.email]
     }
   ];
 
@@ -121,24 +121,94 @@ export class AgregarPersonaComponent {
     }
   ];
 
-  directionFields: FieldConfig[] = [];
+  directionFields: FieldConfig[] = [
+    {
+      type: 'input',
+      name: 'description',
+      label: 'Descripción',
+      placeholder: 'Descripción',
+      validation: [Validators.required]
+    },
+    {
+      type: 'input',
+      name: 'departamento',
+      label: 'Departamento',
+      placeholder: 'Departamento',
+      validation: [Validators.required]
+    },
+    {
+      type: 'input',
+      name: 'municipio',
+      label: 'Municipio',
+      placeholder: 'Municipio',
+      validation: [Validators.required]
+    },
+    {
+      type: 'input',
+      name: 'zone',
+      label: 'Zona',
+      placeholder: 'Zona',
+      validation: [Validators.required]
+    },
+    {
+      type: 'input',
+      name: 'colonia',
+      label: 'Colonia',
+      placeholder: 'Colonia',
+      validation: []
+    },
+    {
+      type: 'input',
+      name: 'sector',
+      label: 'Sector',
+      placeholder: 'Sector',
+      validation: []
+    },
+    {
+      type: 'input',
+      name: 'cuadra',
+      label: 'Cuadra',
+      placeholder: 'Cuadra',
+      validation: []
+    },
+    {
+      type: 'input',
+      name: 'edificio',
+      label: 'Edificio',
+      placeholder: 'Edificio',
+      validation: []
+    },
+    {
+      type: 'input',
+      name: 'avenue',
+      label: 'Avenida',
+      placeholder: 'Avenida',
+      validation: []
+    },
+    {
+      type: 'input',
+      name: 'street',
+      label: 'Calle',
+      placeholder: 'Calle',
+      validation: []
+    },
+    {
+      type: 'input',
+      name: 'number',
+      label: 'Número',
+      placeholder: 'Número',
+      validation: []
+    },
+    {
+      type: 'input',
+      name: 'level',
+      label: 'Nivel',
+      placeholder: 'Nivel',
+      validation: []
+    }
+  ];
 
-  constructor(private rest: RestService, private router: Router) {
-    this.rest.findAll('addressComponents').subscribe(
-      res => {
-        this.addressComponents = res['addressComponents'];
-        this.addressComponents.forEach((component) => {
-          this.directionFields.push({
-            type: 'input',
-            name: component.priority,
-            label: component.name,
-            placeholder: component.name,
-            validation: []
-          });
-        });
-      }
-    )
-  }
+  constructor(private rest: RestService, private router: Router) { }
 
   ngAfterViewInit(): void {
     let previousValid = this.form.valid;
