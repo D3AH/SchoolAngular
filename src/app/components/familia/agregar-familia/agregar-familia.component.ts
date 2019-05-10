@@ -17,7 +17,7 @@ export class AgregarFamiliaComponent {
 
   config: FieldConfig[] = [
     {
-      type: 'select',
+      type: 'selectModel',
       name: 'father',
       label: 'Padre',
       placeholder: 'Padre',
@@ -25,7 +25,7 @@ export class AgregarFamiliaComponent {
       validation: []
     },
     {
-      type: 'select',
+      type: 'selectModel',
       name: 'mother',
       label: 'Madre',
       placeholder: 'Madre',
@@ -33,7 +33,7 @@ export class AgregarFamiliaComponent {
       validation: []
     },
     {
-      type: 'select',
+      type: 'selectModel',
       name: 'son',
       label: 'Hijo',
       placeholder: 'Hijo',
@@ -44,9 +44,9 @@ export class AgregarFamiliaComponent {
 
   constructor(public rest: RestService) {
     this.rest.findAll('persons').subscribe(res => {
-      this.config[0].options = res['persons'].map((person) => { return (person.firstName + '-' + person._id) });
-      this.config[1].options = res['persons'].map((person) => { return (person.firstName + '-' + person._id) });
-      this.config[2].options = res['persons'].map((person) => { return (person.firstName + '-' + person._id) });
+      this.config[0].options = res['persons'];
+      this.config[1].options = res['persons'];
+      this.config[2].options = res['persons'];
     });
   }
 
