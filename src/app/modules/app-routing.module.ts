@@ -10,6 +10,7 @@ import { ListarCursosComponent } from '../components/curso/listar-cursos/listar-
 import { AgregarCursoComponent } from '../components/cursos/agregar-curso/agregar-curso.component';
 import { AgregarCarreraComponent } from '../components/carrera/agregar-carrera/agregar-carrera.component';
 import { AgregarHijoComponent } from '../components/familia/agregar-hijo/agregar-hijo.component';
+import { ListarCarrerasComponent } from '../components/carrera/listar-carreras/listar-carreras.component';
 
 const routes: Routes = [
   { path: '', component: IndexComponent },
@@ -22,10 +23,10 @@ const routes: Routes = [
   { path: 'familia/agregarHijo/:id', component: AgregarHijoComponent },
   // Cursos
   { path: 'cursos/listar', component: ListarCursosComponent},
-  // Curso
- { path: 'curso/agregar', component: AgregarCursoComponent },
+  { path: 'curso/agregar', component: AgregarCursoComponent },
   // Carrera
   { path: 'carrera/agregar', component: AgregarCarreraComponent },
+  { path: 'carrera/listar', component: ListarCarrerasComponent}
  
 ];
 
