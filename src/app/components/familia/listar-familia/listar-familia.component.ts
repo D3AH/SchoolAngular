@@ -14,7 +14,14 @@ export class ListarFamiliaComponent implements OnInit {
   ngOnInit() {
     this.rest.findAll('families').subscribe(
       res => {
-        this.families = res['families'];
+        res['families'].forEach((family) => {
+          this.rest.get(`families/${family._id}/names`).subscribe(
+            res => {
+              this.families.push(res);
+              console.log(res);
+            }
+          );
+        });
       }
     );
   }
