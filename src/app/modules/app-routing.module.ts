@@ -6,15 +6,18 @@ import { ListarPersonaComponent } from '../components/persona/listar-persona/lis
 import { AgregarTelefonoComponent } from '../components/persona/agregar-telefono/agregar-telefono.component';
 import { AgregarFamiliaComponent } from '../components/familia/agregar-familia/agregar-familia.component';
 import { ListarFamiliaComponent } from '../components/familia/listar-familia/listar-familia.component';
+import { AgregarCursoComponent } from '../components/cursos/agregar-curso/agregar-curso.component';
 
 const routes: Routes = [
   { path: '', component: IndexComponent },
   { path: 'persona/agregar', component: AgregarPersonaComponent },
   { path: 'persona/listar', component: ListarPersonaComponent },
   { path: 'persona/agregarTelefono', component: AgregarTelefonoComponent },
-  { path: 'familia/agregar', component: AgregarFamiliaComponent },
   // Familia
-  { path: 'familia/listar', component: ListarFamiliaComponent }
+  { path: 'familia/listar', component: ListarFamiliaComponent },
+  { path: 'familia/agregar', component: AgregarFamiliaComponent },
+  // Curso
+  { path: 'curso/agregar', component: AgregarCursoComponent }
 ];
 
 @NgModule({
