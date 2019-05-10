@@ -6,6 +6,7 @@ import { ListarPersonaComponent } from '../components/persona/listar-persona/lis
 import { AgregarTelefonoComponent } from '../components/persona/agregar-telefono/agregar-telefono.component';
 import { AgregarFamiliaComponent } from '../components/familia/agregar-familia/agregar-familia.component';
 import { ListarFamiliaComponent } from '../components/familia/listar-familia/listar-familia.component';
+import { ListarCursosComponent } from '../components/curso/listar-cursos/listar-cursos.component';
 
 const routes: Routes = [
   { path: '', component: IndexComponent },
@@ -14,7 +15,9 @@ const routes: Routes = [
   { path: 'persona/agregarTelefono', component: AgregarTelefonoComponent },
   { path: 'familia/agregar', component: AgregarFamiliaComponent },
   // Familia
-  { path: 'familia/listar', component: ListarFamiliaComponent }
+  { path: 'familia/listar', component: ListarFamiliaComponent },
+  // Cursos
+  { path: 'cursos/listar', component: ListarCursosComponent}
 ];
 
 @NgModule({
