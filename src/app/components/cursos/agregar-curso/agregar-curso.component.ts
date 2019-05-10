@@ -51,7 +51,6 @@ export class AgregarCursoComponent {
   }
 
   submit(value: { [name: string]: any }) {
-    console.log(this.form.value);
     if (this.form.valid) {
       this.rest.push('courses', this.form.value).subscribe(
         res => {
