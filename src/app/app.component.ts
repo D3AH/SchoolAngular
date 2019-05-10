@@ -12,8 +12,15 @@ export class AppComponent {
 
   links = [
     { path: '/persona/agregar', icon: 'person_add', label: 'Agregar persona' },
+    { path: '/persona/agregarTelefono', icon:'phone', label: 'Agregar Teléfono'},
+    { path: '/carrera/agregar', icon: 'class', label: 'Agregar Carrera' },
+    { path: '/curso/agregar',icon: 'collections_bookmark', label: 'Agregar Cursos'},
     { path: '/familia/agregar', icon: 'peoples', label: 'Crear familia' },
-    { path: '/carrera/agregar', icon: 'class', label: 'Agregar Carrera' }
+    { path: '/persona/listar', icon: 'list_alt', label: 'Listar Persona' },
+    { path: 'familia/listar', icon: 'list_alt', label: 'Listar Familia'},
+    { path: '/cursos/listar',icon: 'list_alt', label: 'Listar Cursos'},
+
+
   ];
 
   constructor(private router: Router) {}
