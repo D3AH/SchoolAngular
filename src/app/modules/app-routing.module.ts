@@ -13,6 +13,7 @@ const routes: Routes = [
   { path: 'persona/listar', component: ListarPersonaComponent },
   { path: 'persona/agregarTelefono', component: AgregarTelefonoComponent },
   { path: 'familia/agregar', component: AgregarFamiliaComponent },
+  // Familia
   { path: 'familia/listar', component: ListarFamiliaComponent }
 ];
 
