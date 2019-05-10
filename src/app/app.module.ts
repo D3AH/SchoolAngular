@@ -17,6 +17,7 @@ import { ListarPersonaComponent } from '../app/components/persona/listar-persona
 import { AgregarTelefonoComponent } from './components/persona/agregar-telefono/agregar-telefono.component';
 import { ListarFamiliaComponent } from './components/familia/listar-familia/listar-familia.component';
 import { AgregarCursoComponent } from './components/cursos/agregar-curso/agregar-curso.component';
+import { AgregarCarreraComponent } from './components/carrera/agregar-carrera/agregar-carrera.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { AgregarCursoComponent } from './components/cursos/agregar-curso/agregar
     IndexComponent,
     AgregarTelefonoComponent,
     ListarFamiliaComponent,
-    AgregarCursoComponent
+    AgregarCursoComponent,
+    AgregarCarreraComponent
   ],
   imports: [
     BrowserModule,
