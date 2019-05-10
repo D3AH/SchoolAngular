@@ -1,0 +1,11 @@
+<mat-list>
+  <mat-list-item *ngFor="let family of families">
+    <span *ngIf="family.father">
+      <strong>Padre:</strong> {{ family.father }}
+    </span>
+    -
+    <span *ngIf="family.mother">
+      <strong>Madre:</strong> {{ family.mother }}
+    </span>
+  </mat-list-item>
+</mat-list>
