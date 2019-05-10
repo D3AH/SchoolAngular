@@ -12,7 +12,7 @@ export class AppComponent {
 
   links = [
     { path: '/persona/agregar', icon: 'person_add', label: 'Agregar persona' },
-    { path: '/agregar', icon: 'peoples', label: 'Crear familia' },
+    { path: '/familia/agregar', icon: 'peoples', label: 'Crear familia' },
     { path: '/carrera/agregar', icon: 'class', label: 'Agregar Carrera' }
   ];
 
