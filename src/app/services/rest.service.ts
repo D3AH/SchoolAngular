@@ -63,6 +63,11 @@ export class RestService {
     return this.http.post(this.endpoint + modelName, params, this.httpOptions).pipe(
       map(this.extractData)
     );
+  }
 
+  get(url) {
+    return this.http.get(this.endpoint + url, this.httpOptions).pipe(
+      map(this.extractData)
+    );
   }
 }
