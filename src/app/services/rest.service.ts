@@ -26,7 +26,7 @@ export class RestService {
   /**
    * FindAll
    * Ej:
-   *  findAll('person')
+   *  findAll('persons')
    *
    * @param modelName Nombre de la entidad
    */
@@ -39,12 +39,12 @@ export class RestService {
   /**
    * FindOne
    * Ej:
-   *  findOne('person', '5cc1d996cee8d5222877f161')
+   *  findOne('persons', '5cc1d996cee8d5222877f161')
    *
    * @param modelName Nombre de la entidad a buscar
    * @param id Id de la entidad
    */
-  findOne(modelName: string, id: string) {
+  findOne(modelName: string, id: string):  Observable <any> {
     return this.http.get(this.endpoint + modelName + `/${id}`).pipe(
       map(this.extractData)
     );
@@ -63,5 +63,6 @@ export class RestService {
     return this.http.post(this.endpoint + modelName, params, this.httpOptions).pipe(
       map(this.extractData)
     );
+
   }
 }

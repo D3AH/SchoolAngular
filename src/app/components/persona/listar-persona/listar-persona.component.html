@@ -1,3 +1,18 @@
-<ul>
-  <ol></ol>
-</ul>
+<h2 class="mat-h2">Listar Persona</h2>
+<br>
+<div class="card" *ngFor="let person of persons">
+    <mat-card class="margin" >
+      <mat-card-content>
+        <mat-card-title>{{ person.firstName }}</mat-card-title>
+        <mat-card-content>{{ person.SeconName }}</mat-card-content>
+        <mat-card-content>{{ person.firstSurname }}</mat-card-content>
+        <mat-card-content>{{ person.lastSurname }}</mat-card-content>
+        <mat-card-content>{{ person.marriedname }}</mat-card-content>
+        <mat-card-content>{{ person.civilStatus }}</mat-card-content>
+        <mat-card-content>{{ person.birthdate }}</mat-card-content>
+        <mat-card-content>{{ person.religion }}</mat-card-content>
+        <mat-card-content>{{ person.email }}</mat-card-content>
+        <mat-card-content>{{ person.sex }}</mat-card-content>
+      </mat-card-content>
+     </mat-card>
+  </div>
