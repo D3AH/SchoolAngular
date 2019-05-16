@@ -34,7 +34,7 @@ export class AgregarFamiliaComponent {
     },
     {
       type: 'selectModel',
-      name: 'son',
+      name: 'sons',
       label: 'Hijo',
       placeholder: 'Hijo',
       options: [],
