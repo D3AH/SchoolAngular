@@ -22,7 +22,7 @@ const routes: Routes = [
   { path: 'familia/agregar', component: AgregarFamiliaComponent },
   { path: 'familia/agregarHijo/:id', component: AgregarHijoComponent },
   // Cursos
-  { path: 'cursos/listar', component: ListarCursosComponent},
+  { path: 'curso/listar', component: ListarCursosComponent},
   { path: 'curso/agregar', component: AgregarCursoComponent },
   // Carrera
   { path: 'carrera/agregar', component: AgregarCarreraComponent },

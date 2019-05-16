@@ -42,7 +42,7 @@ export class AgregarFamiliaComponent {
     }
   ];
 
-  constructor(public rest: RestService) {
+  constructor(public rest: RestService, private router: Router) {
     this.rest.findAll('persons').subscribe(res => {
       this.config[0].options = res['persons'];
       this.config[1].options = res['persons'];
@@ -55,6 +55,7 @@ export class AgregarFamiliaComponent {
       this.rest.push('families', this.form.value).subscribe(
         res => {
           console.log(res);
+          this.router.navigate(['/familia/listar']);
         }
       );
     }

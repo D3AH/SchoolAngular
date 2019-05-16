@@ -45,6 +45,7 @@ export class AgregarHijoComponent implements OnInit {
       this.rest.put(`families/${this.family}/addSon/${this.form.value.son}`, this.form.value).subscribe(
         res => {
           console.log(res);
+          this.router.navigate(['/familia/listar']);
         }
       );
     }

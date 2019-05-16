@@ -21,7 +21,7 @@ export class AgregarTelefonoComponent {
 
   config: FieldConfig[] = [
     {
-      type: 'select',
+      type: 'selectModel',
       name: 'person',
       label: 'Persona',
       placeholder: 'Persona',
@@ -44,10 +44,10 @@ export class AgregarTelefonoComponent {
     }
   ];
 
-  constructor(public rest: RestService) {
+  constructor(public rest: RestService, private router: Router) {
     this.rest.findAll('persons').subscribe(res =>{
       console.log(res);
-      this.config[0].options = res['persons'].map((person) => { return (person.firstName + '-' + person._id) });
+      this.config[0].options = res['persons'];
     });
   }
 
@@ -70,6 +70,7 @@ export class AgregarTelefonoComponent {
       this.rest.push('phones', this.form.value).subscribe(
         res => {
           console.log(res);
+          this.router.navigate(['/persona/listar']);
         }
       );
     }

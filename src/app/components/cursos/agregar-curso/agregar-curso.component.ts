@@ -55,6 +55,7 @@ export class AgregarCursoComponent {
       this.rest.push('courses', this.form.value).subscribe(
         res => {
           console.log(res);
+          this.router.navigate(['/curso/listar']);
         }
       );
     }

@@ -18,7 +18,7 @@ export class AppComponent {
     { path: '/familia/agregar', icon: 'peoples', label: 'Crear familia' },
     { path: '/persona/listar', icon: 'list_alt', label: 'Listar Persona' },
     { path: 'familia/listar', icon: 'list_alt', label: 'Listar Familia' },
-    { path: '/cursos/listar',icon: 'list_alt', label: 'Listar Cursos' },
+    { path: '/curso/listar',icon: 'list_alt', label: 'Listar Cursos' },
     { path: '/carrera/listar', icon: 'list_alt', label: 'Listar Carrera' },
 
 

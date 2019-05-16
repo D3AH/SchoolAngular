@@ -46,24 +46,22 @@ export class AgregarCarreraComponent {
 
   ngAfterViewInit(): void {
     let previousValid = this.form.valid;
-      this.form.changes.subscribe(() => {
-        if (this.form.valid !== previousValid) {
-          previousValid = this.form.valid;
-          this.form.setDisabled('submit', !previousValid);
-        }
-  
-        this.disabled = !this.form.valid;
-      });
+    this.form.changes.subscribe(() => {
+      if (this.form.valid !== previousValid) {
+        previousValid = this.form.valid;
+        this.form.setDisabled('submit', !previousValid);
+      }
+      this.disabled = !this.form.valid;
+    });
   }
-  
   submit(value: { [name: string]: any }) {
     if (this.form.valid) {
       this.rest.push('careers', this.form.value).subscribe(
         res => {
           console.log(res);
+          this.router.navigate(['/carrera/listar']);
         }
       );
     }
-  } 
-  
+  }
 }
