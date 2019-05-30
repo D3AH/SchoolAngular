@@ -12,7 +12,7 @@ export class ListarRedComponent implements OnInit {
   constructor(public rest: RestService) { }
 
   ngOnInit() {
-    this.rest.findAll('network').subscribe(res =>{
+    this.rest.findAll('networks').subscribe(res =>{
         console.log(res);
         this.networks = res['listNetworks']
     })
