@@ -12,6 +12,8 @@ import { Router } from '@angular/router';
 })
 export class AgregarRedComponent implements OnInit {
   @ViewChild('form1') form: DynamicFormComponent;
+  networks;
+  selectedNetworks;
 
   config: FieldConfig[] = [
     {
@@ -52,13 +54,23 @@ export class AgregarRedComponent implements OnInit {
         course.fullName = course.name;
       });
 
-      console.log(res['career']);
-
       this.config[0].options = res['career'];
     });
+
+    this.rest.findAll('networks').subscribe(
+      res => {
+        this.networks = res['networks'];
+      }
+    );
   }
 
   ngOnInit() {
+  }
+
+  ngAfterViewInit(): void {
+    this.form.changes.subscribe(() => {
+      this.selectedNetworks = this.networks.filter((network) => network.career === this.form.value.career);
+    });
   }
 
   submit() {
@@ -67,7 +79,7 @@ export class AgregarRedComponent implements OnInit {
       return false;
     }
     if (this.form.valid) {
-      this.rest.push('network', this.form.value).subscribe(
+      this.rest.push('networks', this.form.value).subscribe(
         res => {
           console.log(res);
           this.router.navigate(['/red/listar']);

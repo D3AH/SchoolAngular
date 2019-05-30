@@ -14,3 +14,22 @@
     Crear
   </button>
 </div>
+<div class="card" *ngFor="let network of selectedNetworks">
+  <mat-card class="margin">
+    <mat-card-header>
+      <mat-card-title>{{ network.description }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <ul>
+        <li>
+          <strong>Fecha de inicio</strong>
+          {{ network.dateStart | date }}
+        </li>
+        <li>
+          <strong>Fecha de fin</strong>
+          {{ network.dateEnd | date }}
+        </li>
+      </ul>
+    </mat-card-content>
+  </mat-card>
+</div>
