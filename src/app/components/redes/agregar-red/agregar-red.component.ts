@@ -74,7 +74,7 @@ export class AgregarRedComponent implements OnInit {
   }
 
   submit() {
-    if (this.form.value.dateStart > this.form.value.dateEnd) {
+    if (this.form.value.dateStart >= this.form.value.dateEnd) {
       console.error('Lapso de fechas incorrecto.');
       return false;
     }
