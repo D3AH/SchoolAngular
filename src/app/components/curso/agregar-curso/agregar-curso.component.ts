@@ -18,6 +18,7 @@ export class AgregarCursoComponent {
   submitted = false;
   isActive = false;
   disabled = true;
+  formPersonValid = false;
 
   config: FieldConfig[] = [
     {
@@ -46,6 +47,7 @@ export class AgregarCursoComponent {
         this.form.setDisabled('submit', !previousValid);
       }
 
+      this.formPersonValid = this.form.valid;
       this.disabled = !this.form.valid;
     });
   }
