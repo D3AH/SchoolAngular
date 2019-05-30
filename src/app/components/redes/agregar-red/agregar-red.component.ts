@@ -83,6 +83,10 @@ export class AgregarRedComponent implements OnInit {
         res => {
           console.log(res);
           this.router.navigate(['/red/listar']);
+        },
+        err => {
+          console.log('HOLAAA');
+          console.log(err);
         }
       );
     }
