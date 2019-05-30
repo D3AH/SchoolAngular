@@ -27,7 +27,6 @@ import { ListarRedComponent } from './components/redes/listar-red/listar-red.com
 import { ListarTeacherComponent } from './components/teacher/listar-teacher/listar-teacher.component';
 import { EditarRedComponent } from './components/redes/editar-red/editar-red.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,

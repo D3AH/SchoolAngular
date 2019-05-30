@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Validators } from '@angular/forms';
 import { DynamicFormComponent } from 'src/app/dynamic-form/containers/dynamic-form/dynamic-form.component';
 import { FieldConfig } from 'src/app/dynamic-form/models/field-config.interface';
@@ -48,7 +49,7 @@ export class AgregarRedComponent implements OnInit {
     }
   ];
 
-  constructor(public rest: RestService, private router: Router) {
+  constructor(public rest: RestService, private router: Router, private _snackBar: MatSnackBar) {
     this.rest.findAll('careers').subscribe(res => {
       res['career'].forEach((course) => {
         course.fullName = course.name;
@@ -85,10 +86,28 @@ export class AgregarRedComponent implements OnInit {
           this.router.navigate(['/red/listar']);
         },
         err => {
+          this._snackBar.openFromComponent(SnackBarComponent, {
+            duration: 10 * 1000,
+          });
           console.log('HOLAAA');
           console.log(err);
         }
       );
     }
   }
+}
+
+@Component({
+  selector: 'snack-bar-component-example-snack',
+  template: `
+    <span> {{error}} </span>
+  `,
+  styles: [`
+    .example-pizza-party {
+      color: hotpink;
+    }
+  `],
+})
+export class SnackBarComponent {
+  constructor(private error: string) { }
 }
