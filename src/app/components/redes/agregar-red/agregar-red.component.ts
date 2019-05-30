@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { Validators } from '@angular/forms';
 import { DynamicFormComponent } from 'src/app/dynamic-form/containers/dynamic-form/dynamic-form.component';
 import { FieldConfig } from 'src/app/dynamic-form/models/field-config.interface';
 import { RestService } from 'src/app/services/rest.service';
@@ -12,15 +13,14 @@ import { Router } from '@angular/router';
 export class AgregarRedComponent implements OnInit {
   @ViewChild('form1') form: DynamicFormComponent;
 
-
   config: FieldConfig[] = [
     {
       type: 'selectModel',
-      name: 'courses',
+      name: 'career',
       label: 'Cursos',
       placeholder: 'Cursos',
       options: [],
-      validation: []
+      validation: [Validators.required]
     },
     {
       type: 'input',
@@ -28,25 +28,45 @@ export class AgregarRedComponent implements OnInit {
       label: 'Descripción',
       placeholder: 'Descripción',
       options: [],
-      validation: []
+      validation: [Validators.required]
     },
-  ]
-  constructor(public rest: RestService, private router: Router) { 
-    this.rest.findAll('courses').subscribe(res => {
-      this.config[0].options = res['Course'];
-    })
+    {
+      type: 'date',
+      label: 'Fecha de inicio',
+      name: 'dateStart',
+      placeholder: 'Ingresa fecha nacimiento',
+      validation: [Validators.required]
+    },
+    {
+      type: 'date',
+      label: 'Fecha de fin',
+      name: 'dateEnd',
+      placeholder: 'Ingresa fecha nacimiento',
+      validation: [Validators.required]
+    }
+  ];
+
+  constructor(public rest: RestService, private router: Router) {
+    this.rest.findAll('careers').subscribe(res => {
+      res['career'].forEach((course) => {
+        course.fullName = course.name;
+      });
+
+      console.log(res['career']);
+
+      this.config[0].options = res['career'];
+    });
   }
 
   ngOnInit() {
   }
-
 
   submit() {
     if (this.form.valid) {
       this.rest.push('network', this.form.value).subscribe(
         res => {
           console.log(res);
-
+          this.router.navigate(['/red/listar']);
         }
       );
     }
