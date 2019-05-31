@@ -12,6 +12,7 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatTreeModule } from '@angular/material/tree';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
     MatStepperModule,
     MatCardModule,
     MatButtonModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatTreeModule
   ],
   exports: [
     CommonModule,
@@ -47,7 +49,8 @@ import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
     MatStepperModule,
     MatCardModule,
     MatButtonModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatTreeModule
   ]
 })
 export class MaterialModule { }

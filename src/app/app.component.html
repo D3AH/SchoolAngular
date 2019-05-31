@@ -6,12 +6,28 @@
         (opened)="events.push('open!')"
         (closed)="events.push('close!')">
         <mat-list>
-            <h3 mat-subheader>Persona</h3>
-            <mat-list-item *ngFor="let link of links" class="button">
-                <mat-icon mat-list-icon (click)="routeTo(link.path)">{{ link.icon }}</mat-icon>
-                <h4 mat-line (click)="routeTo(link.path)">{{ link.label }}</h4>
-                <p mat-line (click)="routeTo(link.path)"></p>
-            </mat-list-item>
+            <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+                <!-- This is the tree node template for leaf nodes -->
+                <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
+                    <!-- use a disabled button to provide padding for tree leaf -->
+                    <button mat-icon-button (click)="routeTo(node.path)">
+                        <mat-icon>
+                            {{node.icon}}
+                        </mat-icon>
+                        {{node.name}}
+                    </button>
+                </mat-tree-node>
+                <!-- This is the tree node template for expandable nodes -->
+                <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding>
+                    <button mat-icon-button matTreeNodeToggle
+                            [attr.aria-label]="'toggle ' + node.name">
+                        <mat-icon class="mat-icon-rtl-mirror">
+                            {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+                        </mat-icon>
+                        {{node.name}}
+                    </button>
+                </mat-tree-node>
+            </mat-tree>
             <mat-divider></mat-divider>
         </mat-list>
     </mat-sidenav>
