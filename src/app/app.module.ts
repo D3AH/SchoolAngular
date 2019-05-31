@@ -22,12 +22,15 @@ import { AgregarCarreraComponent } from './components/carrera/agregar-carrera/ag
 import { AgregarHijoComponent } from './components/familia/agregar-hijo/agregar-hijo.component';
 import { ListarCarrerasComponent } from './components/carrera/listar-carreras/listar-carreras.component';
 import { AgregarTeacherComponent } from './components/teacher/agregar-teacher/agregar-teacher.component';
-import { AgregarRedComponent } from './components/redes/agregar-red/agregar-red.component';
+import { AgregarRedComponent, SnackBarComponent } from './components/redes/agregar-red/agregar-red.component';
 import { ListarRedComponent } from './components/redes/listar-red/listar-red.component';
 import { ListarTeacherComponent } from './components/teacher/listar-teacher/listar-teacher.component';
 import { EditarRedComponent } from './components/redes/editar-red/editar-red.component';
 
 @NgModule({
+  entryComponents: [
+    SnackBarComponent
+  ],
   declarations: [
     AppComponent,
     NavbarComponent,
@@ -46,7 +49,8 @@ import { EditarRedComponent } from './components/redes/editar-red/editar-red.com
     AgregarRedComponent,
     ListarRedComponent,
     ListarTeacherComponent,
-    EditarRedComponent
+    EditarRedComponent,
+    SnackBarComponent
   ],
   imports: [
     BrowserModule,

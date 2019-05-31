@@ -1,4 +1,6 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Inject} from '@angular/core';
+import {MAT_SNACK_BAR_DATA} from '@angular/material';
+
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Validators } from '@angular/forms';
 import { DynamicFormComponent } from 'src/app/dynamic-form/containers/dynamic-form/dynamic-form.component';
@@ -86,11 +88,11 @@ export class AgregarRedComponent implements OnInit {
           this.router.navigate(['/red/listar']);
         },
         err => {
-          this._snackBar.openFromComponent(SnackBarComponent, {
-            duration: 10 * 1000,
-          });
-          console.log('HOLAAA');
           console.log(err);
+          this._snackBar.openFromComponent(SnackBarComponent, {
+            duration: 5 * 1000,
+            data: err.error.message
+          });
         }
       );
     }
@@ -100,7 +102,7 @@ export class AgregarRedComponent implements OnInit {
 @Component({
   selector: 'snack-bar-component-example-snack',
   template: `
-    <span> {{error}} </span>
+    <span> Un error inesperado a ocurrido. {{data}} </span>
   `,
   styles: [`
     .example-pizza-party {
@@ -109,5 +111,5 @@ export class AgregarRedComponent implements OnInit {
   `],
 })
 export class SnackBarComponent {
-  constructor(private error: string) { }
+  constructor(@Inject(MAT_SNACK_BAR_DATA) public data: any) { }
 }
