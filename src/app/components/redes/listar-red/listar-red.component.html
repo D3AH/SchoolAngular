@@ -1,0 +1,10 @@
+<h2 class="mat-h2">Listar Redes</h2>
+<br>
+<div class="card" *ngFor="let network of networks">
+    <mat-card class="margin" >
+      <mat-card-content>
+        <mat-card-content>{{ network.courses }}</mat-card-content>
+        <mat-card-content>{{ network.description }}</mat-card-content>
+      </mat-card-content>
+     </mat-card>
+  </div>

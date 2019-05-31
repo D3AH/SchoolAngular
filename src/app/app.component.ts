@@ -20,8 +20,11 @@ export class AppComponent {
     { path: 'familia/listar', icon: 'list_alt', label: 'Listar Familia' },
     { path: '/curso/listar',icon: 'list_alt', label: 'Listar Cursos' },
     { path: '/carrera/listar', icon: 'list_alt', label: 'Listar Carrera' },
-
-
+    { path: '/teacher/agregar', icon: 'person_add', label: 'Agregar Profesor'},
+    { path: '/red/agregar', icon: 'collections_bookmark', label: 'Agregar Redes' },
+    { path: '/teacher/listar', icon:'list_alt', label: 'Listar Profesores' },
+    { path: '/red/listar', icon: 'list_alt', label: 'Listar Redes'},
+    { path: '/red/editar', icon: '', label: 'Editar Redes' }
   ];
 
   constructor(private router: Router) {}

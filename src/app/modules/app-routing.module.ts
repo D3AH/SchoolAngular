@@ -11,6 +11,11 @@ import { AgregarCursoComponent } from '../components/cursos/agregar-curso/agrega
 import { AgregarCarreraComponent } from '../components/carrera/agregar-carrera/agregar-carrera.component';
 import { AgregarHijoComponent } from '../components/familia/agregar-hijo/agregar-hijo.component';
 import { ListarCarrerasComponent } from '../components/carrera/listar-carreras/listar-carreras.component';
+import { AgregarTeacherComponent } from '../components/teacher/agregar-teacher/agregar-teacher.component';
+import { AgregarRedComponent } from '../components/redes/agregar-red/agregar-red.component';
+import { ListarRedComponent } from '../components/redes/listar-red/listar-red.component';
+import { ListarTeacherComponent } from '../components/teacher/listar-teacher/listar-teacher.component';
+import { EditarRedComponent } from '../components/redes/editar-red/editar-red.component';
 
 const routes: Routes = [
   { path: '', component: IndexComponent },
@@ -26,7 +31,14 @@ const routes: Routes = [
   { path: 'curso/agregar', component: AgregarCursoComponent },
   // Carrera
   { path: 'carrera/agregar', component: AgregarCarreraComponent },
-  { path: 'carrera/listar', component: ListarCarrerasComponent}
+  { path: 'carrera/listar', component: ListarCarrerasComponent},
+  //Teacher
+  { path: 'teacher/agregar', component: AgregarTeacherComponent},
+  { path: 'teacher/listar', component:  ListarTeacherComponent},
+  //Redes
+  { path: 'red/agregar', component: AgregarRedComponent },
+  { path: 'red/listar', component: ListarRedComponent },
+  { path: 'red/editar', component: EditarRedComponent }
  
 ];
 

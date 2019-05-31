@@ -1,0 +1,11 @@
+<h2 class="mat-h2">Listar Instructor</h2>
+<br>
+<div class="card" *ngFor="let instructor of teachers">
+    <mat-card class="margin" >
+      <mat-card-content>
+        <mat-card-title>{{ instructor.code }}</mat-card-title>
+        <mat-card-content>{{ instructor.personalData }}</mat-card-content>
+        <mat-card-content>{{ instructor.profession }}</mat-card-content>
+      </mat-card-content>
+     </mat-card>
+  </div>
