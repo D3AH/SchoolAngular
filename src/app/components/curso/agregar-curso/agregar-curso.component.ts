@@ -34,10 +34,25 @@ export class AgregarCursoComponent {
       placeholder: 'Nombre del curso',
       name: 'name',
       validation: [Validators.required]
+    },
+    {
+      type: 'selectModel',
+      label: 'Intructores',
+      placeholder: 'Instructores',
+      name: 'teachers',
+      validation: [Validators.required]
     }
   ];
 
-  constructor(private rest: RestService, private router: Router) { }
+  constructor(private rest: RestService, private router: Router) {
+    this.rest.findAll('teacher').subscribe(res => {
+      res['teacherListed'].forEach((teacher) => {
+        teacher.fullName = teacher.personalData;
+      });
+
+      this.config[2].options = res['teacherListed'];
+    });
+   }
 
   ngAfterViewInit(): void {
     let previousValid = this.form.valid;
