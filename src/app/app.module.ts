@@ -30,6 +30,8 @@ import { AgregarJornadaSeccionComponent } from './components/JornadaSeccion/agre
 import { ListarJornadaSeccionComponent } from './components/JornadaSeccion/listar-jornada-seccion/listar-jornada-seccion.component';
 import { AgregarInscripcionComponent } from './components/inscripcion/agregar-inscripcion/agregar-inscripcion.component';
 import { ListarInscripcionComponent } from './components/inscripcion/listar-inscripcion/listar-inscripcion.component';
+import { AgregarUnidadComponent } from './components/unidadAcademica/agregar-unidad/agregar-unidad.component';
+import { ListarUnidadComponent } from './components/unidadAcademica/listar-unidad/listar-unidad.component';
 
 
 @NgModule({
@@ -60,6 +62,8 @@ import { ListarInscripcionComponent } from './components/inscripcion/listar-insc
     ListarJornadaSeccionComponent,
     AgregarInscripcionComponent,
     ListarInscripcionComponent,
+    AgregarUnidadComponent,
+    ListarUnidadComponent,
   ],
   imports: [
     BrowserModule,
