@@ -1,0 +1,13 @@
+<h2 class="mat-h2">Listar Jornada y Sección</h2>
+<br>
+<div class="card" *ngFor="let daytime of daytime">
+    <mat-card class="margin" >
+      <mat-card-content>
+        <mat-card-title>Carrera: {{ daytime.career }}</mat-card-title>
+        <mat-card-content>Curso: {{ daytime.courses }}</mat-card-content>
+        <mat-card-content>Jornada: {{ daytime.daytime }}</mat-card-content>
+        <mat-card-content>Grado: {{ daytime.grade }}</mat-card-content>
+        <mat-card-content>Sección: {{ daytime.section }}</mat-card-content>
+      </mat-card-content>
+     </mat-card>
+  </div>

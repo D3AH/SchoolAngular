@@ -16,6 +16,9 @@ import { AgregarRedComponent } from '../components/redes/agregar-red/agregar-red
 import { ListarRedComponent } from '../components/redes/listar-red/listar-red.component';
 import { ListarTeacherComponent } from '../components/teacher/listar-teacher/listar-teacher.component';
 import { EditarRedComponent } from '../components/redes/editar-red/editar-red.component';
+import { AgregarJornadaSeccionComponent } from '../components/JornadaSeccion/agregar-jornada-seccion/agregar-jornada-seccion.component';
+import { ListarJornadaSeccionComponent } from '../components/JornadaSeccion/listar-jornada-seccion/listar-jornada-seccion.component';
+
 
 const routes: Routes = [
   { path: '', component: IndexComponent },
@@ -38,8 +41,11 @@ const routes: Routes = [
   //Redes
   { path: 'red/agregar', component: AgregarRedComponent },
   { path: 'red/listar', component: ListarRedComponent },
-  { path: 'red/editar', component: EditarRedComponent }
-];
+  { path: 'red/editar', component: EditarRedComponent },
+  //JornadaSección
+  { path: 'JornadaSeccion/agregar', component: AgregarJornadaSeccionComponent },
+  { path: 'JornadaSeccion/listar', component: ListarJornadaSeccionComponent }
+];  
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

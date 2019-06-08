@@ -26,6 +26,9 @@ import { AgregarRedComponent, SnackBarComponent } from './components/redes/agreg
 import { ListarRedComponent } from './components/redes/listar-red/listar-red.component';
 import { ListarTeacherComponent } from './components/teacher/listar-teacher/listar-teacher.component';
 import { EditarRedComponent } from './components/redes/editar-red/editar-red.component';
+import { ComponentsComponent } from './components/components.component';
+import { AgregarJornadaSeccionComponent } from './components/JornadaSeccion/agregar-jornada-seccion/agregar-jornada-seccion.component';
+import { ListarJornadaSeccionComponent } from './components/JornadaSeccion/listar-jornada-seccion/listar-jornada-seccion.component';
 
 @NgModule({
   entryComponents: [
@@ -50,7 +53,10 @@ import { EditarRedComponent } from './components/redes/editar-red/editar-red.com
     ListarRedComponent,
     ListarTeacherComponent,
     EditarRedComponent,
-    SnackBarComponent
+    SnackBarComponent,
+    ComponentsComponent,
+    AgregarJornadaSeccionComponent,
+    ListarJornadaSeccionComponent
   ],
   imports: [
     BrowserModule,
