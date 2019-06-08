@@ -26,9 +26,11 @@ import { AgregarRedComponent, SnackBarComponent } from './components/redes/agreg
 import { ListarRedComponent } from './components/redes/listar-red/listar-red.component';
 import { ListarTeacherComponent } from './components/teacher/listar-teacher/listar-teacher.component';
 import { EditarRedComponent } from './components/redes/editar-red/editar-red.component';
-import { ComponentsComponent } from './components/components.component';
 import { AgregarJornadaSeccionComponent } from './components/JornadaSeccion/agregar-jornada-seccion/agregar-jornada-seccion.component';
 import { ListarJornadaSeccionComponent } from './components/JornadaSeccion/listar-jornada-seccion/listar-jornada-seccion.component';
+import { AgregarInscripcionComponent } from './components/inscripcion/agregar-inscripcion/agregar-inscripcion.component';
+import { ListarInscripcionComponent } from './components/inscripcion/listar-inscripcion/listar-inscripcion.component';
+
 
 @NgModule({
   entryComponents: [
@@ -54,9 +56,10 @@ import { ListarJornadaSeccionComponent } from './components/JornadaSeccion/lista
     ListarTeacherComponent,
     EditarRedComponent,
     SnackBarComponent,
-    ComponentsComponent,
     AgregarJornadaSeccionComponent,
-    ListarJornadaSeccionComponent
+    ListarJornadaSeccionComponent,
+    AgregarInscripcionComponent,
+    ListarInscripcionComponent,
   ],
   imports: [
     BrowserModule,
