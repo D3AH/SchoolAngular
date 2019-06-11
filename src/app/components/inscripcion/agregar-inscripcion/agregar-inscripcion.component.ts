@@ -4,6 +4,7 @@ import { FieldConfig } from 'src/app/dynamic-form/models/field-config.interface'
 import { Validators } from '@angular/forms';
 import { RestService } from 'src/app/services/rest.service';
 import { Router } from '@angular/router';
+import { InscripcionValidator } from 'src/app/shared/inscripcion-validator.directive';
 
 @Component({
   selector: 'app-agregar-inscripcion',
@@ -13,6 +14,8 @@ import { Router } from '@angular/router';
 export class AgregarInscripcionComponent implements AfterViewInit {
   @ViewChild('form1') form: DynamicFormComponent;
   formSubmitDisable = true;
+
+  validators = [InscripcionValidator];
 
   config: FieldConfig[] = [
     {
@@ -29,14 +32,24 @@ export class AgregarInscripcionComponent implements AfterViewInit {
       placeholder: 'Unidad académica',
       options: [],
       validation: [Validators.required]  
-    },{
+    },
+    {
+      type: 'selectModel',
+      name: 'career',
+      label: 'Carrera',
+      placeholder: 'Carrera',
+      options: [],
+      validation: []
+    },
+    {
       type: 'input',
       name: 'grade',
       label: 'Grado',
       placeholder: 'Grado',
       options: [],
       validation: [Validators.required]
-    },{
+    },
+    {
       type: 'input',
       name: 'fee',
       label: 'Cuota',
@@ -44,7 +57,25 @@ export class AgregarInscripcionComponent implements AfterViewInit {
       options: [],
       validation: [Validators.required]
 
+    },
+    {
+      type: 'select',
+      name: 'daytime',
+      label: 'Jornada',
+      placeholder: 'Jornada',
+      options: ['Matutina','Vespertina'],
+      validation: []  
+    },
+    {
+      type: 'input',
+      name: 'section',
+      label: 'Sección',
+      placeholder: 'Sección',
+      options: [],
+      validation: [Validators.required]
+
     }
+
   ];
   
   ngAfterViewInit(): void {
@@ -78,6 +109,14 @@ export class AgregarInscripcionComponent implements AfterViewInit {
       })
 
       this.config[1].options = res['AcademicUnity'];
+    });
+
+    this.rest.findAll('careers').subscribe(res => {
+      res['career'].forEach((course) => {
+        course.fullName = course.name;
+      });
+
+      this.config[2].options = res['career'];
     });
    }
 }
