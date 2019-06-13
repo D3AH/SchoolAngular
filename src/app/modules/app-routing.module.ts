@@ -27,19 +27,18 @@ const routes: Routes = [
   { path: 'familia/agregar', component: AgregarFamiliaComponent },
   { path: 'familia/agregarHijo/:id', component: AgregarHijoComponent },
   // Cursos
-  { path: 'curso/listar', component: ListarCursosComponent},
+  { path: 'curso/listar', component: ListarCursosComponent },
   { path: 'curso/agregar', component: AgregarCursoComponent },
   // Carrera
   { path: 'carrera/agregar', component: AgregarCarreraComponent },
-  { path: 'carrera/listar', component: ListarCarrerasComponent},
+  { path: 'carrera/listar', component: ListarCarrerasComponent },
   //Teacher
-  { path: 'teacher/agregar', component: AgregarTeacherComponent},
-  { path: 'teacher/listar', component:  ListarTeacherComponent},
+  { path: 'instructores/agregar', component: AgregarTeacherComponent },
+  { path: 'instructores/listar', component:  ListarTeacherComponent },
   //Redes
   { path: 'red/agregar', component: AgregarRedComponent },
   { path: 'red/listar', component: ListarRedComponent },
   { path: 'red/editar', component: EditarRedComponent }
- 
 ];
 
 @NgModule({
