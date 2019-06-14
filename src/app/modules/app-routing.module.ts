@@ -33,8 +33,8 @@ const routes: Routes = [
   { path: 'carrera/agregar', component: AgregarCarreraComponent },
   { path: 'carrera/listar', component: ListarCarrerasComponent },
   //Teacher
-  { path: 'instructores/agregar', component: AgregarTeacherComponent },
-  { path: 'instructores/listar', component:  ListarTeacherComponent },
+  { path: 'instructor/agregar', component: AgregarTeacherComponent },
+  { path: 'instructor/listar', component:  ListarTeacherComponent },
   //Redes
   { path: 'red/agregar', component: AgregarRedComponent },
   { path: 'red/listar', component: ListarRedComponent },

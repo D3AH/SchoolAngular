@@ -6,7 +6,7 @@ import { MatOptionModule, MatNativeDateModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatIconModule, MatListModule } from '@angular/material';
+import { MatIconModule, MatListModule, MatChipsModule } from '@angular/material';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatCardModule } from '@angular/material/card';
@@ -32,7 +32,8 @@ import { MatTreeModule } from '@angular/material/tree';
     MatCardModule,
     MatButtonModule,
     MatSnackBarModule,
-    MatTreeModule
+    MatTreeModule,
+    MatChipsModule
   ],
   exports: [
     CommonModule,
@@ -50,7 +51,8 @@ import { MatTreeModule } from '@angular/material/tree';
     MatCardModule,
     MatButtonModule,
     MatSnackBarModule,
-    MatTreeModule
+    MatTreeModule,
+    MatChipsModule
   ]
 })
 export class MaterialModule { }
