@@ -80,6 +80,4 @@ export class AgregarInscripcionComponent implements AfterViewInit {
       this.config[1].options = res['AcademicUnity'];
     });
    }
-
-
 }
