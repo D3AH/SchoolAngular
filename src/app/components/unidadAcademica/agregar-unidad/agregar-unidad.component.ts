@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   templateUrl: './agregar-unidad.component.html',
   styleUrls: ['./agregar-unidad.component.scss']
 })
-export class AgregarUnidadComponent implements OnInit {
+export class AgregarUnidadComponent {
   @ViewChild('form1') form: DynamicFormComponent;
 
   submitted = false;
