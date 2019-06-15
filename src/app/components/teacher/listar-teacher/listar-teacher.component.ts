@@ -8,14 +8,21 @@ import { Router } from '@angular/router';
   styleUrls: ['./listar-teacher.component.scss']
 })
 export class ListarTeacherComponent implements OnInit {
+  persons = [];
   teachers = [];
 
   constructor(private rest: RestService, private router: Router) { }
 
   ngOnInit() {
-    this.rest.findAll('teacher').subscribe(res =>{
+    this.rest.findAll('persons').subscribe(res =>{
       console.log(res);
-      this.teachers = res['teacherListed'];
+      this.persons = res['persons'];
+    });
+    this.rest.findAll('teacher').subscribe(res =>{
+      res['teacherListed'].forEach((teacher) => {
+        teacher.person = this.persons.filter((person) => person._id == teacher.personalData)[0];
+        this.teachers.push(teacher);
+      });
     });
   }
 
