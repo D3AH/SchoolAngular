@@ -26,6 +26,8 @@ import { AgregarRedComponent, SnackBarComponent } from './components/redes/agreg
 import { ListarRedComponent } from './components/redes/listar-red/listar-red.component';
 import { ListarTeacherComponent } from './components/teacher/listar-teacher/listar-teacher.component';
 import { EditarRedComponent } from './components/redes/editar-red/editar-red.component';
+import { AgregarInscripcionComponent } from './components/inscripcion/agregar-inscripcion/agregar-inscripcion.component';
+import { ListarInscripcionComponent } from './components/inscripcion/listar-inscripcion/listar-inscripcion.component';
 
 
 @NgModule({
@@ -52,6 +54,8 @@ import { EditarRedComponent } from './components/redes/editar-red/editar-red.com
     ListarTeacherComponent,
     EditarRedComponent,
     SnackBarComponent,
+    AgregarInscripcionComponent,
+    ListarInscripcionComponent,
   ],
   imports: [
     BrowserModule,

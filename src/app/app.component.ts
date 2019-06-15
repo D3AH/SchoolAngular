@@ -54,6 +54,12 @@ const TREE_DATA: FoodNode[] = [
       { path: '/instructor/agregar', icon: 'person_add', name: 'Agregar Profesor' },
       { path: '/instructor/listar', icon:'list_alt', name: 'Listar Profesores' },
     ]
+  },{
+    name: 'Inscripciones',
+    children: [
+      { path: '/inscripcion/agregar', icon: 'person_add', name: 'Inscríbete' },
+      { path: '/inscripcion/listar', icon: 'list_alt', name: 'Mira los inscrítos' }
+    ]
   }
 ];
 
