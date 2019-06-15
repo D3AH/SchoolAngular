@@ -16,6 +16,9 @@ import { AgregarRedComponent } from '../components/redes/agregar-red/agregar-red
 import { ListarRedComponent } from '../components/redes/listar-red/listar-red.component';
 import { ListarTeacherComponent } from '../components/teacher/listar-teacher/listar-teacher.component';
 import { EditarRedComponent } from '../components/redes/editar-red/editar-red.component';
+import { AgregarJornadaSeccionComponent } from '../components/JornadaSeccion/agregar-jornada-seccion/agregar-jornada-seccion.component';
+import { ListarJornadaSeccionComponent } from '../components/JornadaSeccion/listar-jornada-seccion/listar-jornada-seccion.component';
+
 import { AgregarInscripcionComponent } from '../components/inscripcion/agregar-inscripcion/agregar-inscripcion.component';
 import { ListarInscripcionComponent } from '../components/inscripcion/listar-inscripcion/listar-inscripcion.component';
 
@@ -41,10 +44,15 @@ const routes: Routes = [
   { path: 'red/agregar', component: AgregarRedComponent },
   { path: 'red/listar', component: ListarRedComponent },
   { path: 'red/editar', component: EditarRedComponent },
-  //Inscripión
+  //JornadaSección
+  { path: 'JornadaSeccion/agregar', component: AgregarJornadaSeccionComponent },
+  { path: 'JornadaSeccion/listar', component: ListarJornadaSeccionComponent },
+    //Inscripión
   { path: 'inscripcion/agregar', component: AgregarInscripcionComponent },
   { path: 'inscripcion/listar', component: ListarInscripcionComponent }
-];
+];  
+
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
