@@ -7,7 +7,7 @@ import { AgregarTelefonoComponent } from '../components/persona/agregar-telefono
 import { AgregarFamiliaComponent } from '../components/familia/agregar-familia/agregar-familia.component';
 import { ListarFamiliaComponent } from '../components/familia/listar-familia/listar-familia.component';
 import { ListarCursosComponent } from '../components/curso/listar-cursos/listar-cursos.component';
-import { AgregarCursoComponent } from '../components/cursos/agregar-curso/agregar-curso.component';
+import { AgregarCursoComponent } from '../components/curso/agregar-curso/agregar-curso.component';
 import { AgregarCarreraComponent } from '../components/carrera/agregar-carrera/agregar-carrera.component';
 import { AgregarHijoComponent } from '../components/familia/agregar-hijo/agregar-hijo.component';
 import { ListarCarrerasComponent } from '../components/carrera/listar-carreras/listar-carreras.component';
@@ -27,19 +27,18 @@ const routes: Routes = [
   { path: 'familia/agregar', component: AgregarFamiliaComponent },
   { path: 'familia/agregarHijo/:id', component: AgregarHijoComponent },
   // Cursos
-  { path: 'curso/listar', component: ListarCursosComponent},
+  { path: 'curso/listar', component: ListarCursosComponent },
   { path: 'curso/agregar', component: AgregarCursoComponent },
   // Carrera
   { path: 'carrera/agregar', component: AgregarCarreraComponent },
-  { path: 'carrera/listar', component: ListarCarrerasComponent},
+  { path: 'carrera/listar', component: ListarCarrerasComponent },
   //Teacher
-  { path: 'teacher/agregar', component: AgregarTeacherComponent},
-  { path: 'teacher/listar', component:  ListarTeacherComponent},
+  { path: 'instructores/agregar', component: AgregarTeacherComponent },
+  { path: 'instructores/listar', component:  ListarTeacherComponent },
   //Redes
   { path: 'red/agregar', component: AgregarRedComponent },
   { path: 'red/listar', component: ListarRedComponent },
   { path: 'red/editar', component: EditarRedComponent }
- 
 ];
 
 @NgModule({

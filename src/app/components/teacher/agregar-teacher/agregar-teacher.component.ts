@@ -42,7 +42,7 @@ export class AgregarTeacherComponent implements OnInit {
   constructor(public rest: RestService, private router: Router) {
       this.rest.findAll('persons').subscribe(res => {
         this.config[0].options = res['persons'];
-      })
+      });
    }
 
   ngOnInit() {
@@ -52,10 +52,9 @@ export class AgregarTeacherComponent implements OnInit {
     if (this.form.valid) {
       this.rest.push('teacher', this.form.value).subscribe(
         res => {
-          console.log(res);
+          this.router.navigate(['/instructor/listar']);
         }
       );
     }
   }
-
 }

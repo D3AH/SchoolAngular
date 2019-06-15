@@ -273,7 +273,6 @@ export class AgregarPersonaComponent {
     if (this.form3.valid) {
       this.rest.push('addresses', this.form3.value).subscribe(
         res => {
-          console.log(res);
           this.router.navigate(['/persona/listar']);
         },
         err => {

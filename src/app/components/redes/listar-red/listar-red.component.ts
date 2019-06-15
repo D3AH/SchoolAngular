@@ -14,7 +14,7 @@ export class ListarRedComponent implements OnInit {
   ngOnInit() {
     this.rest.findAll('networks').subscribe(res =>{
         console.log(res);
-        this.networks = res['listNetworks']
+        this.networks = res['networks']
     })
   }
 

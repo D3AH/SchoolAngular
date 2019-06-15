@@ -11,6 +11,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatTreeModule } from '@angular/material/tree';
 
 
 @NgModule({
@@ -28,7 +30,9 @@ import { MatButtonModule } from '@angular/material/button';
     MatDatepickerModule,
     MatStepperModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    MatSnackBarModule,
+    MatTreeModule
   ],
   exports: [
     CommonModule,
@@ -44,7 +48,9 @@ import { MatButtonModule } from '@angular/material/button';
     MatDatepickerModule,
     MatStepperModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    MatSnackBarModule,
+    MatTreeModule
   ]
 })
 export class MaterialModule { }

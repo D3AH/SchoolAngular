@@ -17,18 +17,20 @@ import { ListarPersonaComponent } from '../app/components/persona/listar-persona
 import { AgregarTelefonoComponent } from './components/persona/agregar-telefono/agregar-telefono.component';
 import { ListarFamiliaComponent } from './components/familia/listar-familia/listar-familia.component';
 import { ListarCursosComponent } from './components/curso/listar-cursos/listar-cursos.component';
-import { AgregarCursoComponent } from './components/cursos/agregar-curso/agregar-curso.component';
+import { AgregarCursoComponent } from './components/curso/agregar-curso/agregar-curso.component';
 import { AgregarCarreraComponent } from './components/carrera/agregar-carrera/agregar-carrera.component';
 import { AgregarHijoComponent } from './components/familia/agregar-hijo/agregar-hijo.component';
 import { ListarCarrerasComponent } from './components/carrera/listar-carreras/listar-carreras.component';
 import { AgregarTeacherComponent } from './components/teacher/agregar-teacher/agregar-teacher.component';
-import { AgregarRedComponent } from './components/redes/agregar-red/agregar-red.component';
+import { AgregarRedComponent, SnackBarComponent } from './components/redes/agregar-red/agregar-red.component';
 import { ListarRedComponent } from './components/redes/listar-red/listar-red.component';
 import { ListarTeacherComponent } from './components/teacher/listar-teacher/listar-teacher.component';
 import { EditarRedComponent } from './components/redes/editar-red/editar-red.component';
 
-
 @NgModule({
+  entryComponents: [
+    SnackBarComponent
+  ],
   declarations: [
     AppComponent,
     NavbarComponent,
@@ -47,7 +49,8 @@ import { EditarRedComponent } from './components/redes/editar-red/editar-red.com
     AgregarRedComponent,
     ListarRedComponent,
     ListarTeacherComponent,
-    EditarRedComponent
+    EditarRedComponent,
+    SnackBarComponent
   ],
   imports: [
     BrowserModule,

@@ -58,6 +58,9 @@ export class AgregarCursoComponent {
         res => {
           console.log(res);
           this.router.navigate(['/curso/listar']);
+        },
+        err => {
+          console.log(err);
         }
       );
     }
