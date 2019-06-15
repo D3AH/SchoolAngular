@@ -24,38 +24,6 @@ export class EditarRedComponent implements OnInit {
     },
     {
       type: 'selectModel',
-      name: 'course',
-      label: 'Curso',
-      placeholder: 'Curso',
-      options: [],
-      validation: []
-    },
-    {
-      type: 'selectModel',
-      name: 'course',
-      label: 'Curso',
-      placeholder: 'Curso',
-      options: [],
-      validation: []
-    },
-    {
-      type: 'selectModel',
-      name: 'course',
-      label: 'Curso',
-      placeholder: 'Curso',
-      options: [],
-      validation: []
-    },
-    {
-      type: 'selectModel',
-      name: 'course',
-      label: 'Curso',
-      placeholder: 'Curso',
-      options: [],
-      validation: []
-    },
-    {
-      type: 'selectModel',
       name: 'network',
       label: 'Red',
       placeholder: 'Red',
@@ -66,17 +34,17 @@ export class EditarRedComponent implements OnInit {
 
   constructor(private rest: RestService, private route: ActivatedRoute, private router: Router) {
     this.rest.findAll('courses').subscribe(res => {
+      res['Course'].forEach((course) => {
+        course.fullName = course.name;
+      });
       this.config[0].options = res['Course'];
-      this.config[1].options = res['Course'];
-      this.config[2].options = res['Course'];
-      this.config[3].options = res['Course'];
-      this.config[4].options = res['Course'];
     });
 
-    this.rest.findAll('network').subscribe(res => {
-      this.config[5].options = res['listNetworks']
-      var pee = this.config[5].options;
-      console.log(pee);
+    this.rest.findAll('networks').subscribe(res => {
+      res['networks'].forEach((network) => {
+        network.fullName = network.description;
+      });
+      this.config[1].options = res['networks'];
     })
   }
 
@@ -87,7 +55,7 @@ export class EditarRedComponent implements OnInit {
   submit() {
     if (this.form.valid) {
 
-      this.rest.put(`network/${this.form.value.network}/addNetwork/${this.form.value.course}`, this.form.value).subscribe(
+      this.rest.put(`networks/${this.form.value.network}/addNetwork/${this.form.value.course}`, this.form.value).subscribe(
         res => {
           console.log(res);
         }
