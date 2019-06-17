@@ -40,7 +40,7 @@ const TREE_DATA: FoodNode[] = [
     name: 'Redes de estudio',
     children: [
       { path: '/red/agregar', icon: 'collections_bookmark', name: 'Agregar Red de estudio' },
-      { path: '/red/editar', icon: '', name: 'Agregar curso a red de estudio' },
+      { path: '/red/editar', icon: 'assignment_turned_in', name: 'Agregar curso a red de estudio' },
       { path: '/red/listar', icon: 'list_alt', name: 'Listar Redes de estudio'},
     ]
   }, {
@@ -66,6 +66,12 @@ const TREE_DATA: FoodNode[] = [
     children: [
       { path: '/JornadaSeccion/agregar', icon: 'library_add', name: 'Agregar Jornada' },
       { path: '/JornadaSeccion/listar', icon:'list_alt', name: 'Listar Jornada' },
+    ]
+  },{
+    name: 'Unidad Académica',
+    children: [
+      { path: '/unidadAcademica/agregar', icon: 'library_add', name: 'Agregar Unidad' },
+      { path: '/unidadAcademica/listar', icon: 'list_alt', name: 'Listar Unidad' },
     ]
   }
 ];

@@ -1,18 +1,16 @@
-import { Component, ViewChild, AfterViewInit } from '@angular/core';
-import { Validators } from '@angular/forms';
-
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { DynamicFormComponent } from 'src/app/dynamic-form/containers/dynamic-form/dynamic-form.component';
 import { FieldConfig } from 'src/app/dynamic-form/models/field-config.interface';
+import { Validators } from '@angular/forms';
 import { RestService } from 'src/app/services/rest.service';
-import { lastNameValidator } from 'src/app/shared/last-name-validator.directive';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-agregar-curso',
-  templateUrl: './agregar-curso.component.html',
-  styleUrls: ['./agregar-curso.component.scss']
+  selector: 'app-agregar-unidad',
+  templateUrl: './agregar-unidad.component.html',
+  styleUrls: ['./agregar-unidad.component.scss']
 })
-export class AgregarCursoComponent {
+export class AgregarUnidadComponent {
   @ViewChild('form1') form: DynamicFormComponent;
 
   submitted = false;
@@ -23,38 +21,22 @@ export class AgregarCursoComponent {
   config: FieldConfig[] = [
     {
       type: 'input',
-      label: 'Código del curso',
-      placeholder: 'Código del curso',
+      label: 'Código',
+      placeholder: 'Código',
       name: 'code',
       validation: [Validators.required]
     },
     {
       type: 'input',
-      label: 'Nombre del curso',
-      placeholder: 'Nombre del curso',
-      name: 'name',
-      validation: [Validators.required]
-    },
-    {
-      type: 'selectModel',
-      label: 'Intructores',
-      placeholder: 'Instructores',
-      name: 'teachers',
+      label: 'Descripción',
+      placeholder: 'Descripción',
+      name: 'description',
       validation: [Validators.required]
     }
   ];
+  constructor(private rest: RestService, private router: Router) { }
 
-  constructor(private rest: RestService, private router: Router) {
-    this.rest.findAll('teacher').subscribe(res => {
-      res['teacherListed'].forEach((teacher) => {
-        teacher.fullName = teacher.personalData;
-      });
-
-      this.config[2].options = res['teacherListed'];
-    });
-   }
-
-  ngAfterViewInit(): void {
+  ngAfterViewInit() {
     let previousValid = this.form.valid;
     this.form.changes.subscribe(() => {
       if (this.form.valid !== previousValid) {
@@ -65,14 +47,15 @@ export class AgregarCursoComponent {
       this.formPersonValid = this.form.valid;
       this.disabled = !this.form.valid;
     });
+
   }
 
   submit(value: { [name: string]: any }) {
     if (this.form.valid) {
-      this.rest.push('courses', this.form.value).subscribe(
+      this.rest.push('academicUnity', this.form.value).subscribe(
         res => {
           console.log(res);
-          this.router.navigate(['/curso/listar']);
+          this.router.navigate(['/unidadAcademica/listar']);
         },
         err => {
           console.log(err);

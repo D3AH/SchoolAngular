@@ -22,6 +22,8 @@ import { ListarJornadaSeccionComponent } from '../components/JornadaSeccion/list
 import { AgregarInscripcionComponent } from '../components/inscripcion/agregar-inscripcion/agregar-inscripcion.component';
 import { ListarInscripcionComponent } from '../components/inscripcion/listar-inscripcion/listar-inscripcion.component';
 import { AgregarInstructorCursoComponent } from '../components/curso/agregar-instructor-curso/agregar-instructor-curso.component';
+import { AgregarUnidadComponent } from '../components/unidadAcademica/agregar-unidad/agregar-unidad.component';
+import { ListarUnidadComponent } from '../components/unidadAcademica/listar-unidad/listar-unidad.component';
 
 const routes: Routes = [
   { path: '', component: IndexComponent },
@@ -51,7 +53,10 @@ const routes: Routes = [
   { path: 'JornadaSeccion/listar', component: ListarJornadaSeccionComponent },
     //Inscripión
   { path: 'inscripcion/agregar', component: AgregarInscripcionComponent },
-  { path: 'inscripcion/listar', component: ListarInscripcionComponent }
+  { path: 'inscripcion/listar', component: ListarInscripcionComponent },
+  //Unidad Academica
+  { path: 'unidadAcademica/agregar', component: AgregarUnidadComponent },
+  { path: 'unidadAcademica/listar', component: ListarUnidadComponent }
 ];  
 
 

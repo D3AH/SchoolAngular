@@ -17,7 +17,7 @@ export class AgregarInscripcionComponent implements AfterViewInit {
   config: FieldConfig[] = [
     {
       type: 'selectModel',
-      name: 'student',
+      name: 'person',
       label: 'Estudiante',
       placeholder: 'Estudiante',
       options: [],

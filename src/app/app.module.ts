@@ -31,7 +31,8 @@ import { ListarJornadaSeccionComponent } from './components/JornadaSeccion/lista
 import { AgregarInscripcionComponent } from './components/inscripcion/agregar-inscripcion/agregar-inscripcion.component';
 import { ListarInscripcionComponent } from './components/inscripcion/listar-inscripcion/listar-inscripcion.component';
 import { AgregarInstructorCursoComponent } from './components/curso/agregar-instructor-curso/agregar-instructor-curso.component';
-
+import { AgregarUnidadComponent } from './components/unidadAcademica/agregar-unidad/agregar-unidad.component';
+import { ListarUnidadComponent } from './components/unidadAcademica/listar-unidad/listar-unidad.component';
 
 @NgModule({
   entryComponents: [
@@ -62,6 +63,8 @@ import { AgregarInstructorCursoComponent } from './components/curso/agregar-inst
     AgregarInscripcionComponent,
     ListarInscripcionComponent,
     AgregarInstructorCursoComponent,
+    AgregarUnidadComponent,
+    ListarUnidadComponent,
   ],
   imports: [
     BrowserModule,
