@@ -4,12 +4,14 @@
   <mat-card class="margin">
     <mat-card-header>
       <mat-card-title>{{ network.description }}</mat-card-title>
-      <mat-card-subtitle>{{ network.career }}</mat-card-subtitle>
+      <mat-card-subtitle>{{ network.career.name }}</mat-card-subtitle>
     </mat-card-header>
-    <mat-card-content>
-      <p>
-        Cursos (Aproximadamente)
-      </p>
+    <mat-card-content>      
+      <ul>
+        <li *ngFor="let course of network.courses">
+          {{course}}
+        </li>
+      </ul>
       <ul>
         <li>
           <strong>Fecha de inicio</strong>
