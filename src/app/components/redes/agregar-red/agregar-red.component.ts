@@ -22,8 +22,24 @@ export class AgregarRedComponent implements OnInit {
     {
       type: 'selectModel',
       name: 'career',
+      label: 'Carrera',
+      placeholder: 'Carreras',
+      options: [],
+      validation: [Validators.required]
+    },
+    {
+      type: 'selectModel',
+      name: 'courses',
       label: 'Cursos',
       placeholder: 'Cursos',
+      options: [],
+      validation: [Validators.required]
+    },
+    {
+      type: 'input',
+      name: 'grade',
+      label: 'Grado',
+      placeholder: 'Grado',
       options: [],
       validation: [Validators.required]
     },
@@ -58,6 +74,14 @@ export class AgregarRedComponent implements OnInit {
       });
 
       this.config[0].options = res['career'];
+    });
+
+    this.rest.findAll('courses').subscribe(res => {
+        res['Course'].forEach((name) => {
+          name.fullName = name.name;
+        });
+
+        this.config[1].options = res['Course'];
     });
 
     this.rest.findAll('networks').subscribe(
