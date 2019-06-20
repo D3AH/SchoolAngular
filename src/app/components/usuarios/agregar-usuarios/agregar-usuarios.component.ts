@@ -33,7 +33,7 @@ export class AgregarUsuariosComponent {
       type: 'select',
       label: 'Roles',
       placeholder: 'Roles',
-      name: 'rol',
+      name: 'role',
       validation: [Validators.required],
       options: ['Administrador', 'Director', 'SubDirector', 'Coordinador', 'Instructor', 'Secretaría']
     }
