@@ -7,7 +7,7 @@ export const InscripcionValidator: ValidatorFn = (control: FormGroup): Validatio
 
   const career = control.get('career');
 
-  if(academicUnity && academicUnity.value === 'Básico' && daytime && daytime.value !== ''){
+  if(academicUnity && academicUnity.value === 'a' && daytime && daytime.value !== ''){
       console.log(0);
       return { career: true}
   }
