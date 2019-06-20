@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'app-index',
@@ -7,11 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IndexComponent implements OnInit {
   today: Date;
+  user;
 
-  constructor() { }
+  constructor(private auth: AuthenticationService) { }
 
   ngOnInit() {
     this.today = new Date();
+    this.user = this.auth.currentUserValue;
   }
 
 }

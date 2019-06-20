@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { FlatTreeControl } from '@angular/cdk/tree';
 import { MatTreeFlatDataSource, MatTreeFlattener } from '@angular/material/tree';
+import { AuthenticationService } from './services/authentication.service';
 
 /**
  * Food data with nested structure.
@@ -97,12 +98,13 @@ interface ExampleFlatNode {
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   datos;
   events: string[] = [];
   opened: boolean;
   treeFlattener;
   dataSource;
+  user;
 
   treeControl = new FlatTreeControl<ExampleFlatNode>(
       node => node.level, node => node.expandable);
@@ -120,18 +122,27 @@ export class AppComponent {
     };
   }
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private auth: AuthenticationService) {
     this.treeFlattener = new MatTreeFlattener(
-      this.transformer, node => node.level, node => node.expandable, node => node.children);
+    this.transformer, node => node.level, node => node.expandable, node => node.children);
 
     this.dataSource = new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
     this.dataSource.data = TREE_DATA;
+  }
+
+  ngOnInit(): void {
+    this.user = this.auth.currentUserValue;
   }
 
   hasChild = (_: number, node: ExampleFlatNode) => node.expandable;
 
   toggle() {
     this.opened = !this.opened;
+  }
+
+  logout() {
+    this.auth.logout();
+    this.router.navigate(['/']);
   }
 
   routeTo(route) {

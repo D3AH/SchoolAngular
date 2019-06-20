@@ -36,7 +36,12 @@
     <mat-sidenav-content>
         <mat-toolbar color="primary">
             <mat-icon (click)="toggle()">menu</mat-icon>
-            <!-- <span (click)="toggle()">SchoolManager</span> -->
+            <ng-container *ngIf="user; else elseTemplate">
+                <span (click)="logout()">Logout</span>
+            </ng-container>
+            <ng-template #elseTemplate>
+                    <span (click)="routeTo('login')">Login</span>
+            </ng-template>
         </mat-toolbar>
         <div class="container">
             <router-outlet></router-outlet>
