@@ -35,7 +35,7 @@ export class AgregarUsuariosComponent {
       placeholder: 'Roles',
       name: 'role',
       validation: [Validators.required],
-      options: ['Administrador', 'Director', 'SubDirector', 'Coordinador', 'Instructor', 'Secretaría']
+      options: ['ROLE_ADMIN', 'ROLE_DIRECTOR_SUBDIRECTOR', 'ROLE_COORDINADOR', 'ROLE_INSTRUCTOR', 'ROLE_SECRETARIA']
     }
   ];
 
@@ -47,10 +47,10 @@ export class AgregarUsuariosComponent {
   submit(value: { [name: string]: any }) {
 
     if (this.form.valid) {
-      this.rest.push('user/user', this.form.value).subscribe(
+      this.rest.push('user/register', this.form.value).subscribe(
         res => {
-          console.log(res);
           this.user = res;
+          this.router.navigate(['/']);
         }
       );
     }

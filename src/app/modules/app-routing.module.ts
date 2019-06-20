@@ -160,8 +160,7 @@ const routes: Routes = [
   // Usuario
   {
     path: 'usuario/agregar',
-    component: AgregarUsuariosComponent,
-    canActivate: [AuthGuard]
+    component: AgregarUsuariosComponent
   },
 
   //Login

@@ -14,8 +14,9 @@ export class AuthGuard implements CanActivate {
         const currentUser = this.authenticationService.currentUserValue;
         const rolesPermissions = {
           ROLE_SECRETARIA: ['persona', 'familia', 'inscripcion'],
-          ROLE_INSTRUCTOR: ['curso'],
-          ROLE_DIRECTOR: ['curso', 'carrera', 'instructor', 'red', 'JornadaSeccion', 'unidadAcademica']
+          ROLE_DIRECTOR_SUBDIRECTOR: ['curso', 'carrera', 'instructor', 'red', 'JornadaSeccion', 'unidadAcademica'],
+          ROLE_COORDINADOR: ['curso', 'carrera', 'instructor', 'red', 'JornadaSeccion', 'unidadAcademica'],
+          ROLE_INSTRUCTOR: ['curso']
         };
 
         const domain = state.url.slice(1, state.url.indexOf('/', 2));
