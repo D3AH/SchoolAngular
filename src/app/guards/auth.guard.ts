@@ -23,7 +23,7 @@ export class AuthGuard implements CanActivate {
           if (currentUser.role === 'ROLE_ADMIN') {
             return true;
           }
-          return rolesPermissions['ROLE_SECRETARIA'].indexOf(domain) >= 0;
+          return rolesPermissions[currentUser.role].indexOf(domain) >= 0;
         }
 
         this.router.navigate(['/login'], { queryParams: { returnUrl: state.url } });
