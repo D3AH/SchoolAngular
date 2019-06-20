@@ -24,6 +24,7 @@ import { ListarPersonaComponent } from '../components/persona/listar-persona/lis
 import { ListarRedComponent } from '../components/redes/listar-red/listar-red.component';
 import { ListarTeacherComponent } from '../components/teacher/listar-teacher/listar-teacher.component';
 import { ListarUnidadComponent } from '../components/unidadAcademica/listar-unidad/listar-unidad.component';
+import { AgregarUsuariosComponent } from '../components/usuarios/agregar-usuarios/agregar-usuarios.component';
 
 import { AuthGuard } from '../guards/auth.guard';
 
@@ -152,6 +153,13 @@ const routes: Routes = [
   {
     path: 'unidadAcademica/listar',
     component: ListarUnidadComponent,
+    canActivate: [AuthGuard]
+  },
+
+  // Usuario
+  {
+    path: 'usuario/agregar',
+    component: AgregarUsuariosComponent,
     canActivate: [AuthGuard]
   }
 ];
