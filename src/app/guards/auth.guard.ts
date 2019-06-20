@@ -26,7 +26,7 @@ export class AuthGuard implements CanActivate {
           return rolesPermissions['ROLE_SECRETARIA'].indexOf(domain) >= 0;
         }
 
-        this.router.navigate([''], { queryParams: { returnUrl: state.url } });
+        this.router.navigate(['/login'], { queryParams: { returnUrl: state.url } });
         return false;
     }
 }

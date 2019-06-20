@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { DynamicFormComponent } from 'src/app/dynamic-form/containers/dynamic-form/dynamic-form.component';
 import { FieldConfig } from 'src/app/dynamic-form/models/field-config.interface';
 import { Validators } from '@angular/forms';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'app-login',
@@ -34,8 +35,8 @@ export class LoginComponent implements OnInit {
       validation: [Validators.required]
     },
   ];
-    
-  constructor(private rest: RestService, private router: Router) { }
+
+  constructor(private rest: RestService, private router: Router, private auth: AuthenticationService) { }
 
   ngOnInit() {
   }
@@ -44,8 +45,8 @@ export class LoginComponent implements OnInit {
       if(this.form.valid){
         this.rest.push('user', this.form.value).subscribe(
           res => {
-            console.log(res);
-            this.router.navigate(['/inicio']);
+            this.auth.login(res);
+            this.router.navigate(['/']);
           }
         )
       }

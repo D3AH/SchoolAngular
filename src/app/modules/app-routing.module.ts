@@ -27,6 +27,7 @@ import { ListarUnidadComponent } from '../components/unidadAcademica/listar-unid
 import { AgregarUsuariosComponent } from '../components/usuarios/agregar-usuarios/agregar-usuarios.component';
 
 import { AuthGuard } from '../guards/auth.guard';
+import { LoginComponent } from '../components/login/login.component';
 
 const routes: Routes = [
   {
