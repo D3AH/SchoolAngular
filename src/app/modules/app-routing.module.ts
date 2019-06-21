@@ -24,9 +24,11 @@ import { ListarInscripcionComponent } from '../components/inscripcion/listar-ins
 import { AgregarInstructorCursoComponent } from '../components/curso/agregar-instructor-curso/agregar-instructor-curso.component';
 import { AgregarUnidadComponent } from '../components/unidadAcademica/agregar-unidad/agregar-unidad.component';
 import { ListarUnidadComponent } from '../components/unidadAcademica/listar-unidad/listar-unidad.component';
+import { LoginComponent } from '../components/login/login.component';
 
 const routes: Routes = [
   { path: '', component: IndexComponent },
+  { path: 'inicio', component: IndexComponent },
   { path: 'persona/agregar', component: AgregarPersonaComponent },
   { path: 'persona/listar', component: ListarPersonaComponent },
   { path: 'persona/agregarTelefono', component: AgregarTelefonoComponent },
@@ -56,8 +58,12 @@ const routes: Routes = [
   { path: 'inscripcion/listar', component: ListarInscripcionComponent },
   //Unidad Academica
   { path: 'unidadAcademica/agregar', component: AgregarUnidadComponent },
-  { path: 'unidadAcademica/listar', component: ListarUnidadComponent }
+  { path: 'unidadAcademica/listar', component: ListarUnidadComponent },
+
+  //Login
+  { path: 'login', component: LoginComponent}
 ];  
+
 
 
 
