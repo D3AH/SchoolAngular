@@ -34,6 +34,7 @@ import { AgregarInstructorCursoComponent } from './components/curso/agregar-inst
 import { AgregarUnidadComponent } from './components/unidadAcademica/agregar-unidad/agregar-unidad.component';
 import { ListarUnidadComponent } from './components/unidadAcademica/listar-unidad/listar-unidad.component';
 import { LoginComponent } from './components/login/login.component';
+import { AgregarUsuariosComponent } from './components/usuarios/agregar-usuarios/agregar-usuarios.component';
 
 @NgModule({
   entryComponents: [
@@ -67,6 +68,7 @@ import { LoginComponent } from './components/login/login.component';
     AgregarUnidadComponent,
     ListarUnidadComponent,
     LoginComponent,
+    AgregarUsuariosComponent,
   ],
   imports: [
     BrowserModule,
