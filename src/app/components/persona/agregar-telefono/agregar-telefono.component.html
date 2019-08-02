@@ -1,0 +1,16 @@
+<div class="app form-block" [class.mat-elevation-z2]="!isActive">
+  <h2 class="mat-h2">Agregar teléfono</h2>
+  <dynamic-form
+    [class.mat-elevation-z3]="isActive"
+    [config]="config"
+    [validators]="validators"
+    #form1>
+  </dynamic-form>
+  <button
+      mat-raised-button
+      [disabled]="disabled"
+      (click)="submit($event)"
+      color="primary">
+      Agregar
+    </button>
+</div>

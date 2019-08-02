@@ -1,0 +1,16 @@
+<h2 class="mat-h2">Listar familia</h2>
+<mat-list>
+  <h3 mat-subheader>Familias</h3>
+  <mat-list-item *ngFor="let family of families">
+    <mat-icon (click)="open(family.id)" mat-list-icon>people</mat-icon>
+    <p mat-line>
+      <span *ngIf="family.father">
+        <strong>Padre:</strong> {{ family.father.fullName }}
+      </span>
+      -
+      <span *ngIf="family.mother">
+        <strong>Madre:</strong> {{ family.mother.fullName }}
+      </span>
+    </p>
+  </mat-list-item>
+</mat-list>

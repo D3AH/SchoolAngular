@@ -1,0 +1,60 @@
+<div class="app form-block" [class.mat-elevation-z2]="!isActive">
+    <h2 class="mat-h2">Agregar persona</h2>
+    <mat-horizontal-stepper labelPosition="bottom" #stepper linear>
+      <mat-step [completed]="formPersonValid">
+        <ng-template matStepLabel>Datos básicos</ng-template>
+        <dynamic-form
+          [class.mat-elevation-z3]="isActive"
+          [config]="config"
+          [validators]="validators"
+          #form1>
+        </dynamic-form>
+        <button
+          matStepperNext
+          mat-raised-button
+          [disabled]="disabled"
+          (click)="submit($event)"
+          color="primary">
+          Siguiente
+        </button>
+        <!-- {{ form.valid }}
+        {{ form.value | json }} -->
+      </mat-step>
+      <mat-step optional>
+        <ng-template matStepLabel>Teléfonos</ng-template>
+        <dynamic-form
+          [class.mat-elevation-z3]="isActive"
+          [config]="phoneFields"
+          #form2>
+        </dynamic-form>
+        <div class="menu-buttons">
+          <button
+            mat-button
+            matStepperNext
+            mat-raised-button
+            (click)="submit2($event)"
+            color="primary">
+            {{ textButtonStep2 }}
+          </button>
+        </div>
+      </mat-step>
+      <mat-step optional>
+        <ng-template matStepLabel>Dirección</ng-template>
+        <dynamic-form
+          [class.mat-elevation-z3]="isActive"
+          [config]="directionFields"
+          #form3>
+        </dynamic-form>
+        <div class="menu-buttons">
+          <button
+            mat-button
+            matStepperNext
+            mat-raised-button
+            (click)="submit3($event)"
+            color="primary">
+            {{ textButtonStep3 }}
+          </button>
+        </div>
+      </mat-step>
+    </mat-horizontal-stepper>
+</div>

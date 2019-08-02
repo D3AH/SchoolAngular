@@ -1,0 +1,19 @@
+<div class="app form-block" [class.mat-elevation-z2]="!isActive">
+  <h2 class="mat-h2">Agregar Profesor</h2>
+  <mat-chip-list>
+    <mat-chip>Código: {{code}}</mat-chip>
+  </mat-chip-list>
+  <dynamic-form
+    [class.mat-elevation-z3]="isActive"
+    [config]="config"
+    [validators]="validators"
+    #form1>
+  </dynamic-form>
+  <button
+    mat-raised-button
+    [disabled]="formSubmitDisable"
+    (click)="submit()"
+    color="primary">
+    Crear
+  </button>
+</div>

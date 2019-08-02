@@ -1,4 +1,50 @@
-<app-navbar></app-navbar>
-<div class="container">
-  <router-outlet></router-outlet>
-</div>
+<mat-sidenav-container class="example-container">
+    <!-- Sidenav -->
+    <mat-sidenav
+        #sidenav mode="over"
+        [(opened)]="opened"
+        (opened)="events.push('open!')"
+        (closed)="events.push('close!')">
+        <mat-list>
+            <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+                <!-- This is the tree node template for leaf nodes -->
+                <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
+                    <!-- use a disabled button to provide padding for tree leaf -->
+                    <button mat-icon-button (click)="routeTo(node.path)">
+                        <mat-icon>
+                            {{node.icon}}
+                        </mat-icon>
+                        {{node.name}}
+                    </button>
+                </mat-tree-node>
+                <!-- This is the tree node template for expandable nodes -->
+                <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding>
+                    <button mat-icon-button matTreeNodeToggle
+                            [attr.aria-label]="'toggle ' + node.name">
+                        <mat-icon class="mat-icon-rtl-mirror">
+                            {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+                        </mat-icon>
+                        {{node.name}}
+                    </button>
+                </mat-tree-node>
+            </mat-tree>
+            <mat-divider></mat-divider>
+        </mat-list>
+    </mat-sidenav>
+
+    <!-- Content -->
+    <mat-sidenav-content>
+        <mat-toolbar color="primary">
+            <mat-icon (click)="toggle()">menu</mat-icon>
+            <ng-container *ngIf="user; else elseTemplate">
+                <span (click)="logout()">Logout</span>
+            </ng-container>
+            <ng-template #elseTemplate>
+                    <span (click)="routeTo('login')">Login</span>
+            </ng-template>
+        </mat-toolbar>
+        <div class="container">
+            <router-outlet></router-outlet>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

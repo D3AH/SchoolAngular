@@ -1,0 +1,28 @@
+<ng-container *ngIf="user; else elseTemplate">
+  <h2 class="mat-h2">Bienvenido </h2>
+  <mat-chip-list aria-label="Fish selection">
+    <mat-chip color="primary" selected>{{ user.role }}</mat-chip>
+  </mat-chip-list>
+</ng-container>
+<ng-template #elseTemplate>
+  <h2 class="mat-h2">Bienvenido</h2>
+  <h4 class="mat-h3">Debe registarse</h4>
+</ng-template>
+<h5 class="mat-h5">{{ today }}</h5>
+<div class="row-cards">
+  <div class="card">
+    <mat-card>
+      <mat-card-content>
+        <mat-icon class="card-icon">person</mat-icon>
+        <mat-card-title>Persona</mat-card-title>
+        <mat-card-content>Módulo encargado de agregar y listar las personas.</mat-card-content>
+      </mat-card-content>
+      <button mat-stroked-button color="primary" [routerLink]="['/persona/agregar']">
+        <mat-icon>person_add</mat-icon> Agregar
+      </button>
+      <button mat-stroked-button color="primary" [routerLink]="['/persona/listar']">
+        <mat-icon>format_list_bulleted</mat-icon> Listar
+      </button>
+    </mat-card>
+  </div>
+</div>
